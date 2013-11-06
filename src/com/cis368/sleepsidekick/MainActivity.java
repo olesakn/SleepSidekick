@@ -1,4 +1,5 @@
 package com.cis368.sleepsidekick;
+
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.app.ActionBar.Tab;
@@ -32,6 +33,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		setContentView(R.layout.home);
 		
 		final ActionBar actionBar = getActionBar();
+		actionBar.setDisplayShowHomeEnabled(false);              
+		actionBar.setDisplayShowTitleEnabled(false);
 
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the app.
@@ -87,14 +90,15 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		public SectionsPagerAdapter(FragmentManager fm) {
 			super(fm);
 		}
-
 		public Fragment getItem(int position) {
-			// getItem is called to instantiate the fragment for the given page.
-			// Return a SectionFragment with the page number as its lone argument.
+
 			Fragment fragment = new HomeActivity();
-			Bundle args = new Bundle();
-			args.putInt(HomeActivity.ARG_SECTION_NUMBER, position + 1);
-			fragment.setArguments(args);
+			if (position == 0)
+				fragment = new SleepAidsActivity();
+			if (position == 1)
+				fragment = new HomeActivity();
+			if (position == 2)
+				fragment = new AlarmsActivity();
 			return fragment;
 		}
 

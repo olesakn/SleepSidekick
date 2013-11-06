@@ -6,18 +6,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@android:color/black"
     tools:context=".HomeActivity$DummySectionFragment" >
 
-    <Button
-        android:id="@+id/Button01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/home_button_schedule"
-        android:layout_alignBottom="@+id/home_button_schedule"
-        android:layout_alignRight="@+id/home_button_go_to_sleep"
-        android:height="75dp"
-        android:text="Schedule"
-        android:width="125dp" />
 
     <Button
         android:id="@+id/home_button_go_to_sleep"
@@ -27,9 +18,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:height="80dp"
-        android:text="Go To Sleep!"
+        android:text="Go To Sleep"
+        android:textSize="28dp"
         android:textColor="@android:color/white"
-        android:
         android:width="300dp" />
 
     <TextView
@@ -39,6 +30,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:text="February 10th"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <DigitalClock
@@ -48,6 +40,7 @@
         android:layout_below="@+id/home_textview_date"
         android:layout_centerHorizontal="true"
         android:text="DigitalClock"
+        android:textColor="@android:color/white"
         android:textSize="32dp" />
 
     <TextView
@@ -59,6 +52,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
         android:text="Alarm set for 9:00 am\nTuesday, February 11\n12 hours, 30 mins from now"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button
@@ -70,6 +64,19 @@
         android:layout_marginTop="38dp"
         android:height="75dp"
         android:text="Schedule"
+        android:textColor="@android:color/white"
+        android:width="125dp" />
+    
+    <Button
+        android:id="@+id/home_button_stats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/home_button_schedule"
+        android:layout_alignBottom="@+id/home_button_schedule"
+        android:layout_alignRight="@+id/home_button_go_to_sleep"
+        android:height="75dp"
+        android:text="Statistics"
+        android:textColor="@android:color/white"
         android:width="125dp" />
 
 </RelativeLayout>
