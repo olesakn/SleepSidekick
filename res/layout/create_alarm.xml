@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="@android:color/white"
+    android:background="@drawable/sky_background"
     android:gravity="center_horizontal"
     android:orientation="vertical" >
 
@@ -11,31 +11,178 @@
         android:id="@+id/create_alarm_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="Create New Alarm"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@android:color/white"
-        android:textSize="30dp" />
+        android:textSize="20dp" />
 
     <EditText
         android:id="@+id/create_alarm_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:ems="10"
+        android:layout_marginTop="14dp"
+        android:ems="8"
+        android:gravity="center"
         android:hint="Name" />
 
     <TimePicker
         android:id="@+id/timePicker1"
+        android:layout_marginTop="-40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:textColor="@android:color/white" />
+        android:hapticFeedbackEnabled="true"
+        android:scaleX="0.6"
+        android:scaleY="0.6" />
 
-    <DatePicker
-        android:id="@+id/datePicker1"
+    <Button
+        android:id="@+id/create_alarm_button_date"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-40dp"
+        android:gravity="center"
+        android:text="11/15/2013"
+        android:textSize="15dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" 
-        android:textColor="@android:color/white"/>
+        android:gravity="center">
+
+        <ToggleButton
+            android:id="@+id/toggleButton1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="ToggleButton"
+            android:textOff="S"
+            android:textOn="S"/>
+
+        <ToggleButton
+            android:id="@+id/toggleButton2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:textOff="M"
+            android:textOn="M"
+            android:text="ToggleButton" />
+
+        <ToggleButton
+            android:id="@+id/toggleButton3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:textOff="T"
+            android:textOn="T"
+            android:text="ToggleButton" />
+
+        <ToggleButton
+            android:id="@+id/toggleButton4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:textOff="W"
+            android:textOn="W"
+            android:text="ToggleButton" />
+
+        <ToggleButton
+            android:id="@+id/toggleButton5"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:textOff="T"
+            android:textOn="T"
+            android:text="ToggleButton" />
+
+        <ToggleButton
+            android:id="@+id/toggleButton6"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:textOff="F"
+            android:textOn="F"
+            android:text="ToggleButton" />
+
+        <ToggleButton
+            android:id="@+id/toggleButton7"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:textOff="S"
+            android:textOn="S"
+            android:text="ToggleButton" />
+
+
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="Wake Up Sound"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <Spinner
+                android:id="@+id/spinner1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wake Up Task"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <Spinner
+                android:id="@+id/spinner2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Snooze Time"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <Spinner
+                android:id="@+id/spinner3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/create_alarm_button_add_sleep_aid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Sleep Aid" />
+
+    <Button
+        android:id="@+id/create_alarm_button_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Alarm" />
 
 </LinearLayout>

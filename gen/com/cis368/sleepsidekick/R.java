@@ -25,23 +25,49 @@ public final class R {
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
+        public static final int sky_background=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000e;
-        public static final int alarms_button_create_new_alarm=0x7f090006;
-        public static final int button1=0x7f090005;
+        public static final int action_settings=0x7f090027;
+        public static final int alarms_button_create_new_alarm=0x7f09001e;
+        public static final int alarms_list_view=0x7f09001d;
+        public static final int create_alarm_button_add_sleep_aid=0x7f090014;
+        public static final int create_alarm_button_date=0x7f090003;
+        public static final int create_alarm_button_save=0x7f090015;
         public static final int create_alarm_name=0x7f090001;
         public static final int create_alarm_title=0x7f090000;
-        public static final int datePicker1=0x7f090003;
-        public static final int home_button_go_to_sleep=0x7f090007;
-        public static final int home_button_schedule=0x7f09000b;
-        public static final int home_button_stats=0x7f09000c;
-        public static final int home_digitalClock=0x7f090008;
-        public static final int home_textview_date=0x7f090009;
-        public static final int listView1=0x7f090004;
-        public static final int pager=0x7f09000d;
-        public static final int textView1=0x7f09000a;
+        public static final int create_sleep_aid_button_date=0x7f090018;
+        public static final int create_sleep_aid_button_save=0x7f09001c;
+        public static final int create_sleep_aid_name=0x7f090017;
+        public static final int create_sleep_aid_title=0x7f090016;
+        public static final int home_button_go_to_sleep=0x7f09001f;
+        public static final int home_button_schedule=0x7f090022;
+        public static final int home_button_stats=0x7f090023;
+        public static final int home_digitalClock=0x7f090020;
+        public static final int home_textview_date=0x7f090021;
+        public static final int pager=0x7f090026;
+        public static final int seekBar1=0x7f090019;
+        public static final int seekBar2=0x7f09001b;
+        public static final int sleep_aids_button_create_new_alarm=0x7f090025;
+        public static final int sleep_aids_list_view=0x7f090024;
+        public static final int spinner1=0x7f09000d;
+        public static final int spinner2=0x7f090010;
+        public static final int spinner3=0x7f090013;
+        public static final int tableRow1=0x7f09000b;
+        public static final int tableRow2=0x7f09000e;
+        public static final int tableRow3=0x7f090011;
+        public static final int textView1=0x7f09000c;
+        public static final int textView2=0x7f09000f;
+        public static final int textView3=0x7f090012;
+        public static final int textView4=0x7f09001a;
         public static final int timePicker1=0x7f090002;
+        public static final int toggleButton1=0x7f090004;
+        public static final int toggleButton2=0x7f090005;
+        public static final int toggleButton3=0x7f090006;
+        public static final int toggleButton4=0x7f090007;
+        public static final int toggleButton5=0x7f090008;
+        public static final int toggleButton6=0x7f090009;
+        public static final int toggleButton7=0x7f09000a;
     }
     public static final class layout {
         public static final int create_alarm=0x7f030000;
