@@ -16,18 +16,14 @@ public class HomeActivity extends Fragment {
 		View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
 		
-		
-		
-		/*
 		// Build GUI here
-		final Button goToSleepButton = (Button) getActivity().findViewById(R.id.home_button_go_to_sleep);
+		final Button goToSleepButton = (Button) rootView.findViewById(R.id.home_button_go_to_sleep);
 		goToSleepButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {
 				goToSleepButton.setText("Corey is a losser");
 				
 			}
 		});
-		*/
 		return rootView;
 	}
 }

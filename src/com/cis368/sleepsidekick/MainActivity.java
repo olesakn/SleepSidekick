@@ -3,6 +3,7 @@ package com.cis368.sleepsidekick;
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.app.ActionBar.Tab;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -23,6 +24,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	/** Instance Variables */
 	SectionsPagerAdapter mSectionsPagerAdapter;
 	ViewPager viewPager;
+	public static Alarm newAlarm;
 	
 
 	/*********************************************** 
@@ -32,10 +34,12 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home);
 		
+
 		final ActionBar actionBar = getActionBar();
 		actionBar.setDisplayShowHomeEnabled(false);              
 		actionBar.setDisplayShowTitleEnabled(false);
-
+		
+		
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the app.
 		mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -50,6 +54,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 				actionBar.setSelectedNavigationItem(position);
 			}
 		});
+		
 
 		// Create tabs
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -57,6 +62,18 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		actionBar.addTab(actionBar.newTab().setText("Home").setTabListener(this));
 		actionBar.addTab(actionBar.newTab().setText("Alarms").setTabListener(this));
 		
+		
+		newAlarm = null;
+		Intent i = this.getIntent();
+		if (i.getSerializableExtra("alarm") != null) {
+			newAlarm = (Alarm) i.getSerializableExtra("alarm");
+			viewPager.setCurrentItem(2);
+			
+		}
+		else if (i.getSerializableExtra("sleepaid") != null) {
+			// TODO get sleep aid from intent
+			viewPager.setCurrentItem(0);
+		}	
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {

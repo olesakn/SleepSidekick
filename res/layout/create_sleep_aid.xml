@@ -123,11 +123,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="right"
-                android:text="Wake Up Sound"
+                android:text="Sound"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Spinner
-                android:id="@+id/spinner1"
+                android:id="@+id/create_sleep_aid_spinner_sound"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -142,11 +142,11 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Wake Up Task"
+                android:text="Task"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Spinner
-                android:id="@+id/spinner2"
+                android:id="@+id/create_sleep_aid_spinner_task"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
