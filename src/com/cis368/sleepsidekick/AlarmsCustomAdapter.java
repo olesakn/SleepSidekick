@@ -16,7 +16,7 @@ import android.widget.TextView;
 public class AlarmsCustomAdapter extends BaseAdapter {
 
 	private ArrayList<Alarm> alarms;
-	Context context;
+	private Context context;
 
 	AlarmsCustomAdapter (Context c, ArrayList<Alarm> a) {
 		alarms = a;

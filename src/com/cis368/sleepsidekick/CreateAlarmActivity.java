@@ -39,22 +39,43 @@ public class CreateAlarmActivity extends FragmentActivity {
 	private CheckBox repeatCheckBox;
 
 	protected void onCreate(Bundle savedInstanceState) {
-		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.create_alarm);
 		getActionBar().setTitle("Create New Alarm");
 
-		
+
 		nameText = (EditText) findViewById(R.id.create_alarm_name);
 		timePicker = (TimePicker) findViewById(R.id.create_alarm_time_picker);
 		repeatCheckBox = (CheckBox) findViewById(R.id.create_alarm_repeat_checkbox);
-		
-		
-		// Buttons
 		saveButton = (Button) findViewById(R.id.create_alarm_button_save);
+		dateButton = (Button) findViewById(R.id.create_alarm_button_date);
+		soundSpinner = (Spinner) findViewById(R.id.create_alarm_spinner_sound);
+		taskSpinner = (Spinner) findViewById(R.id.create_alarm_spinner_task);
+		snoozeSpinner = (Spinner) findViewById(R.id.create_alarm_spinner_snooze);
+		initializeGUIComponents();
+		
+		
+		int edit_position = getIntent().getIntExtra("edit_position", -1);
+		if (edit_position >= 0) {
+			Alarm a = MainActivity.alarms.get(edit_position);
+			nameText.setText(a.getName());
+			dateButton.setText(a.getDate());
+			repeatCheckBox.setChecked(a.isRepeat());
+			timePicker.setCurrentMinute(Integer.parseInt(a.getMinute()));
+			if (!a.isAm())
+				timePicker.setCurrentHour(Integer.parseInt(a.getHour()+12));
+			else
+
+				timePicker.setCurrentHour(Integer.parseInt(a.getHour()));
+		}
+	}
+
+	
+	private void initializeGUIComponents() {
+
+		// SAVE BUTTON LISTENER
 		saveButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				Intent i = new Intent(v.getContext(), MainActivity.class);
 				Alarm alarm = new Alarm();
 				alarm.setName(nameText.getText().toString());
 				alarm.setDate(dateButton.getText().toString());
@@ -71,45 +92,47 @@ public class CreateAlarmActivity extends FragmentActivity {
 				alarm.setSnooze(snoozeSpinner.getSelectedItem().toString());
 				alarm.setSnooze(taskSpinner.getSelectedItem().toString());
 				alarm.setSnooze(soundSpinner.getSelectedItem().toString());
-				i.putExtra("alarm", alarm);
+				MainActivity.alarms.add(alarm);
+
+				Intent i = new Intent(v.getContext(), MainActivity.class);
+				i.putExtra("tab", 2);
 				startActivity(i);
-				finish(); // stops the current activity (prevents back button from bringing you back here)
+				finish(); // removes this activity from memory
 			}
 		});
-		calendar = Calendar.getInstance();
-		dateButton = (Button) findViewById(R.id.create_alarm_button_date);
-		setCurrentDate(calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), calendar.get(Calendar.YEAR));
+		
+		// CHANGE DATE BUTTON LISTENER
+		Calendar c = Calendar.getInstance();
+		setCurrentDate(c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.YEAR));
 		dateButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				showDatePickerDialog(v);
 			}
 		});
 
-		
-		// Spinners
-		soundSpinner = (Spinner) findViewById(R.id.create_alarm_spinner_sound);
+
+
+		// SPINNER LISTS
 		List<String> list1 = new ArrayList<String>();
+		list1.add("None");
 		list1.add("Music");
 		list1.add("Nature");
 		list1.add("White Noise");
-		list1.add("None");
 		ArrayAdapter<String> dataAdapter1 = new ArrayAdapter<String>(this,
-			android.R.layout.simple_spinner_item, list1);
+				android.R.layout.simple_spinner_item, list1);
 		dataAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		soundSpinner.setAdapter(dataAdapter1);	
-		
-		taskSpinner = (Spinner) findViewById(R.id.create_alarm_spinner_task);
+
 		List<String> list2 = new ArrayList<String>();
+		list2.add("None");
 		list2.add("Math Problem");
 		list2.add("Puzzle");
 		list2.add("Activity");
-		list2.add("None");
 		ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(this,
-			android.R.layout.simple_spinner_item, list2);
+				android.R.layout.simple_spinner_item, list2);
 		dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		taskSpinner.setAdapter(dataAdapter2);
-		
-		snoozeSpinner = (Spinner) findViewById(R.id.create_alarm_spinner_snooze);
+
 		List<String> list3 = new ArrayList<String>();
 		list3.add("None");
 		list3.add("1 Minute");
@@ -121,12 +144,10 @@ public class CreateAlarmActivity extends FragmentActivity {
 		list3.add("30 Minutes");
 		list3.add("1 Hour");
 		ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(this,
-			android.R.layout.simple_spinner_item, list3);
+				android.R.layout.simple_spinner_item, list3);
 		dataAdapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		snoozeSpinner.setAdapter(dataAdapter3);
-		
 	}
-
 	
 	public static class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 

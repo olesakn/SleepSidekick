@@ -7,6 +7,7 @@ public class Alarm implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String 	name, date, hour, minute, sound, task, snooze;
 	private boolean repeat, am;
+	private int[] days;
 	
 	public Alarm() {
 		this.name = "";
@@ -18,11 +19,13 @@ public class Alarm implements Serializable {
 		this.snooze = "";
 		this.repeat = false;
 		this.am = true;
+		this.days = new int[7];
+		for (int i = 0; i < days.length; i++)
+			this.days[i] = 0;
 	}
 	
 	public Alarm(String name, String date, String hour, String minute, boolean am, 
-				String sound, String task, String snooze, boolean repeat) {
-		
+				String sound, String task, String snooze, boolean repeat, int[] days) {
 		this.name = name;
 		this.date = date;
 		this.hour = hour;
@@ -32,6 +35,7 @@ public class Alarm implements Serializable {
 		this.snooze = snooze;
 		this.repeat = repeat;
 		this.am = am;
+		this.days = days;
 	}
 
 	public String getName() {

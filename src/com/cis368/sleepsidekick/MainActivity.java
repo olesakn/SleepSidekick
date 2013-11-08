@@ -1,5 +1,7 @@
 package com.cis368.sleepsidekick;
 
+import java.util.ArrayList;
+
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.app.ActionBar.Tab;
@@ -24,7 +26,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	/** Instance Variables */
 	SectionsPagerAdapter mSectionsPagerAdapter;
 	ViewPager viewPager;
-	public static Alarm newAlarm;
+	public static ArrayList<Alarm> alarms;
 	
 
 	/*********************************************** 
@@ -34,7 +36,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home);
 		
-
 		final ActionBar actionBar = getActionBar();
 		actionBar.setDisplayShowHomeEnabled(false);              
 		actionBar.setDisplayShowTitleEnabled(false);
@@ -62,18 +63,12 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		actionBar.addTab(actionBar.newTab().setText("Home").setTabListener(this));
 		actionBar.addTab(actionBar.newTab().setText("Alarms").setTabListener(this));
 		
+		if (alarms == null)
+			alarms = new ArrayList<Alarm>();
 		
-		newAlarm = null;
 		Intent i = this.getIntent();
-		if (i.getSerializableExtra("alarm") != null) {
-			newAlarm = (Alarm) i.getSerializableExtra("alarm");
-			viewPager.setCurrentItem(2);
-			
-		}
-		else if (i.getSerializableExtra("sleepaid") != null) {
-			// TODO get sleep aid from intent
-			viewPager.setCurrentItem(0);
-		}	
+		int tab = i.getIntExtra("tab", 1);
+		viewPager.setCurrentItem(tab);
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -87,16 +82,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
 		viewPager.setCurrentItem(tab.getPosition());
 	}
-
-
-	public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-		// I don't know if we need this one or not
-	}
-
-
-	public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-		// Don't use this one
-	}
+	
+	// Don't need to use these
+	public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction){}
+	public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {}
 
 	/*******************************************************
 	 * Sections Page Adapter
@@ -107,16 +96,18 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		public SectionsPagerAdapter(FragmentManager fm) {
 			super(fm);
 		}
+		
 		public Fragment getItem(int position) {
-
-			Fragment fragment = new HomeActivity();
-			if (position == 0)
-				fragment = new SleepAidsActivity();
-			if (position == 1)
-				fragment = new HomeActivity();
-			if (position == 2)
-				fragment = new AlarmsActivity();
-			return fragment;
+			switch(position) {
+				case 0:
+					return new SleepAidsActivity();
+				case 1:
+					return new HomeActivity();
+				case 2:
+					return new AlarmsActivity();
+				default:
+					return new Fragment();
+			}
 		}
 
 		public int getCount() {

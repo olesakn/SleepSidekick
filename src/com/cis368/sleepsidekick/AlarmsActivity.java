@@ -19,23 +19,20 @@ public class AlarmsActivity extends Fragment {
 	
 	public static final String ARG_SECTION_NUMBER = "section_number";
 	private ListView listView;
-	private ArrayList<Alarm> alarms;
 	private AlarmsCustomAdapter adapter;
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		final View rootView = inflater.inflate(R.layout.fragment_alarms, container, false);
 		
-		alarms = new ArrayList<Alarm>();
-		alarms.add(new Alarm("Class", "11/15/2013", "7", "30", true, "Music", "Math Problem", "5 Minutes", true));
-		if (MainActivity.newAlarm != null)
-			alarms.add(MainActivity.newAlarm);
+		if (MainActivity.alarms.size() == 0)
+			MainActivity.alarms.add(new Alarm("Class", "11/15/2013", "7", "30", 
+						true, "Music", "Math Problem", "5 Minutes", true, new int[7]));
 		
 		// List View
 		listView = (ListView) rootView.findViewById(R.id.alarms_list_view);
-		adapter = new AlarmsCustomAdapter(rootView.getContext(), alarms);
+		adapter = new AlarmsCustomAdapter(rootView.getContext(), MainActivity.alarms);
 		listView.setAdapter(adapter);
-		//adapter.notifyDataSetChanged();
-		//listView.setDivider(null);	
+		//listView.setDivider(null);
 		listView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> adapter, View view, int pos, long id) {
 				editAlarm(rootView.getContext(), pos);
@@ -52,11 +49,12 @@ public class AlarmsActivity extends Fragment {
 			}
 		});
 		
-		
 		return rootView;
 	}
 
 	private void editAlarm(Context c, int pos) {
 		Intent i = new Intent(c, CreateAlarmActivity.class);
+		i.putExtra("edit_position", pos);
+		startActivity(i);
 	}
 }
