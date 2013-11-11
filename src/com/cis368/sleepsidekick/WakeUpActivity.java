@@ -10,5 +10,8 @@ public class WakeUpActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.wake_up);
 	}
-
+	
+	
+	
+	
 }

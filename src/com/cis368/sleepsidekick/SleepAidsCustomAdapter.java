@@ -1,12 +1,8 @@
 package com.cis368.sleepsidekick;
 
-
-import java.util.Date;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,12 +10,12 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-public class AlarmsCustomAdapter extends BaseAdapter {
+public class SleepAidsCustomAdapter extends BaseAdapter {
 
 	private ArrayList<Alarm> alarms;
 	private Context context;
 
-	AlarmsCustomAdapter (Context c, ArrayList<Alarm> a) {
+	SleepAidsCustomAdapter (Context c, ArrayList<Alarm> a) {
 		alarms = a;
 		context = c;
 	}
@@ -59,5 +55,4 @@ public class AlarmsCustomAdapter extends BaseAdapter {
 
 		return v;
 	}
-}	
-
+}

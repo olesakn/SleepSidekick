@@ -1,207 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/sky_background"
-    android:gravity="center"
-    android:orientation="vertical" >
-    
-    <TextView
-        android:id="@+id/create_sleep_aid_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="Create New Sleep Aid"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@android:color/white"
-        android:textSize="20dp" />
-
-    <EditText
-        android:id="@+id/create_sleep_aid_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="14dp"
-        android:ems="8"
-        android:gravity="center"
-        android:hint="Name" />
-
-    <TimePicker
-        android:id="@+id/timePicker1"
-        android:layout_marginTop="-40dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hapticFeedbackEnabled="true"
-        android:scaleX="0.6"
-        android:scaleY="0.6" />
-
-    <Button
-        android:id="@+id/create_sleep_aid_button_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-40dp"
-        android:gravity="center"
-        android:text="11/15/2013"
-        android:textSize="15dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" 
-        android:gravity="center">
-
-        <ToggleButton
-            android:id="@+id/toggleButton1"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:text="ToggleButton"
-            android:textOff="S"
-            android:textOn="S"/>
-
-        <ToggleButton
-            android:id="@+id/toggleButton2"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:textOff="M"
-            android:textOn="M"
-            android:text="ToggleButton" />
-
-        <ToggleButton
-            android:id="@+id/toggleButton3"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:textOff="T"
-            android:textOn="T"
-            android:text="ToggleButton" />
-
-        <ToggleButton
-            android:id="@+id/toggleButton4"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:textOff="W"
-            android:textOn="W"
-            android:text="ToggleButton" />
-
-        <ToggleButton
-            android:id="@+id/toggleButton5"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:textOff="T"
-            android:textOn="T"
-            android:text="ToggleButton" />
-
-        <ToggleButton
-            android:id="@+id/toggleButton6"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:textOff="F"
-            android:textOn="F"
-            android:text="ToggleButton" />
-
-        <ToggleButton
-            android:id="@+id/toggleButton7"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:textOff="S"
-            android:textOn="S"
-            android:text="ToggleButton" />
-
-
-    </LinearLayout>
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TableRow
-            android:id="@+id/tableRow1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:text="Sound"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <Spinner
-                android:id="@+id/create_sleep_aid_spinner_sound"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Task"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <Spinner
-                android:id="@+id/create_sleep_aid_spinner_task"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </TableRow>
-    </TableLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:width="80dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="Volume"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        <SeekBar
-            android:id="@+id/seekBar1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:width="80dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="Screen\nBrightness"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        <SeekBar
-            android:id="@+id/seekBar2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-    </LinearLayout>
+    android:background="@drawable/sky_background" >
 
     <Button
         android:id="@+id/create_sleep_aid_button_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
         android:text="Save Sleep Aid" />
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/create_sleep_aid_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="14dp"
+            android:ems="8"
+            android:gravity="center"
+            android:hint="Name" />
+
+        <TimePicker
+            android:id="@+id/timePicker1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-40dp"
+            android:hapticFeedbackEnabled="true"
+            android:scaleX="0.6"
+            android:scaleY="0.6" />
+
+        <Button
+            android:id="@+id/create_sleep_aid_button_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-40dp"
+            android:gravity="center"
+            android:text="11/15/2013"
+            android:textSize="15dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center" >
+
+            <ToggleButton
+                android:id="@+id/toggleButton1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="ToggleButton"
+                android:textOff="S"
+                android:textOn="S" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="ToggleButton"
+                android:textOff="M"
+                android:textOn="M" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="ToggleButton"
+                android:textOff="T"
+                android:textOn="T" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton4"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="ToggleButton"
+                android:textOff="W"
+                android:textOn="W" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton5"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="ToggleButton"
+                android:textOff="T"
+                android:textOn="T" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton6"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="ToggleButton"
+                android:textOff="F"
+                android:textOn="F" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton7"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="ToggleButton"
+                android:textOff="S"
+                android:textOn="S" />
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" 
+        	android:layout_marginTop="40dp"
+        	android:layout_marginLeft="60dp" >
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center" >
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right" 
+            		android:gravity="center"
+                    android:text="Sound"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <Spinner
+                    android:id="@+id/create_sleep_aid_spinner_sound"
+            		android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+        </TableLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" 
+            android:layout_marginTop="20dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Volume"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <SeekBar
+                android:id="@+id/seekBar1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Screen Brightness"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <SeekBar
+                android:id="@+id/seekBar2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
