@@ -24,6 +24,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.TimePicker;
+import android.widget.ToggleButton;
 
 public class CreateAlarmActivity extends FragmentActivity {
 	
@@ -41,8 +42,6 @@ public class CreateAlarmActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.create_alarm);
-		getActionBar().setTitle("Create New Alarm");
-
 
 		nameText = (EditText) findViewById(R.id.create_alarm_name);
 		timePicker = (TimePicker) findViewById(R.id.create_alarm_time_picker);
@@ -65,8 +64,30 @@ public class CreateAlarmActivity extends FragmentActivity {
 			if (!a.isAm())
 				timePicker.setCurrentHour(Integer.parseInt(a.getHour()+12));
 			else
-
 				timePicker.setCurrentHour(Integer.parseInt(a.getHour()));
+			String days = a.getDays();
+			
+			if (days.equals("[Everyday]"))
+				days = "Su,M,Tu,W,Th,F,Sa";
+			if (days.equals("[Weekdays]"))
+				days = "M,Tu,W,Th,F";
+			if (days.equals("[Weekends]"))
+				days = "Su,Sa";
+					
+			if (days.contains("Su"))
+				((ToggleButton) findViewById(R.id.create_alarm_toggle_Su)).setChecked(true);
+			if (days.contains("M"))
+				((ToggleButton) findViewById(R.id.create_alarm_toggle_M)).setChecked(true);
+			if (days.contains("Tu"))
+				((ToggleButton) findViewById(R.id.create_alarm_toggle_Tu)).setChecked(true);
+			if (days.contains("W"))
+				((ToggleButton) findViewById(R.id.create_alarm_toggle_W)).setChecked(true);
+			if (days.contains("Th"))
+				((ToggleButton) findViewById(R.id.create_alarm_toggle_Th)).setChecked(true);
+			if (days.contains("F"))
+				((ToggleButton) findViewById(R.id.create_alarm_toggle_F)).setChecked(true);
+			if (days.contains("Sa"))
+				((ToggleButton) findViewById(R.id.create_alarm_toggle_Sa)).setChecked(true);
 		}
 	}
 
@@ -76,6 +97,7 @@ public class CreateAlarmActivity extends FragmentActivity {
 		// SAVE BUTTON LISTENER
 		saveButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
+				
 				Alarm alarm = new Alarm();
 				alarm.setName(nameText.getText().toString());
 				alarm.setDate(dateButton.getText().toString());
@@ -86,13 +108,19 @@ public class CreateAlarmActivity extends FragmentActivity {
 				}
 				else
 					alarm.setAm(true);
-				alarm.setHour(timePicker.getCurrentHour().toString());
+				alarm.setHour(hour + "");
 				alarm.setMinute(timePicker.getCurrentMinute().toString());
 				alarm.setRepeat(repeatCheckBox.isChecked());
 				alarm.setSnooze(snoozeSpinner.getSelectedItem().toString());
 				alarm.setSnooze(taskSpinner.getSelectedItem().toString());
 				alarm.setSnooze(soundSpinner.getSelectedItem().toString());
-				MainActivity.alarms.add(alarm);
+				alarm.setDays(getRepeatedDays());
+				
+				int edit_position = getIntent().getIntExtra("edit_position", -1);
+				if (edit_position >= 0)
+					MainActivity.alarms.set(edit_position, alarm);
+				else
+					MainActivity.alarms.add(alarm);
 
 				Intent i = new Intent(v.getContext(), MainActivity.class);
 				i.putExtra("tab", 2);
@@ -149,24 +177,23 @@ public class CreateAlarmActivity extends FragmentActivity {
 		snoozeSpinner.setAdapter(dataAdapter3);
 	}
 	
+	/***************************************
+	 * Date Dialog Picker
+	 **************************************/
 	public static class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
-
-		@Override
-			public Dialog onCreateDialog(Bundle savedInstanceState) {
-				// Use the current date as the default date in the picker
-				final Calendar c = Calendar.getInstance();
-				int year = c.get(Calendar.YEAR);
-				int month = c.get(Calendar.MONTH);
-				int day = c.get(Calendar.DAY_OF_MONTH);
-			
-			// Create a new instance of DatePickerDialog and return it
+		public Dialog onCreateDialog(Bundle savedInstanceState) {
+			// Use the current date as the default date in the picker
+			final Calendar c = Calendar.getInstance();
+			int year = c.get(Calendar.YEAR);
+			int month = c.get(Calendar.MONTH);
+			int day = c.get(Calendar.DAY_OF_MONTH);
 			return new DatePickerDialog(getActivity(), this, year, month, day);
-			}
-			
-			public void onDateSet(DatePicker view, int year, int month, int day) {
-				setCurrentDate(month, day, year); 
-			}
 		}
+			
+		public void onDateSet(DatePicker view, int year, int month, int day) {
+			setCurrentDate(month, day, year); 
+		}
+	}
 	
 
 	public void showDatePickerDialog(View v) {
@@ -180,8 +207,68 @@ public class CreateAlarmActivity extends FragmentActivity {
 	 ********************************************************************/
 	private static void setCurrentDate(int m, int d, int y) {
 		SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-		CharSequence text = df.format(new Date(y-1900, m, d)).toString();
-		dateButton.setText(text);
+		dateButton.setText(df.format(new Date(y-1900, m, d)));
 	}
+	
+	/*********************************************************************
+	 * Get String representation of the repeated days
+	 ********************************************************************/
+	private ArrayList<String> getRepeatedDays() {
+		ArrayList<String> days = new ArrayList<String>();
+		int count = 0;
+		
+		if (((ToggleButton)findViewById(R.id.create_alarm_toggle_Su)).isChecked()) {
+			days.add("Su");
+			count += 20;
+		}
+		if (((ToggleButton)findViewById(R.id.create_alarm_toggle_M)).isChecked()) {
+			days.add("M");
+			count++;
+		}
+		if (((ToggleButton)findViewById(R.id.create_alarm_toggle_Tu)).isChecked()) {
+			days.add("Tu");
+			count++;
+		}
+		if (((ToggleButton)findViewById(R.id.create_alarm_toggle_W)).isChecked()) {
+			days.add("W");
+			count++;
+		}
+		if (((ToggleButton)findViewById(R.id.create_alarm_toggle_Th)).isChecked()) {
+			days.add("Th");
+			count++;
+		}
+		if (((ToggleButton)findViewById(R.id.create_alarm_toggle_F)).isChecked()) {
+			days.add("F");
+			count++;
+		}
+		if (((ToggleButton)findViewById(R.id.create_alarm_toggle_Sa)).isChecked()) {
+			days.add("Sa");
+			count += 20;
+		}
+		if (count == 45 ) {
+			days.clear();
+			days.add("Everyday");
+		}
+		if (count == 5) {
+			days.clear();
+			days.add("Weekdays");
+		}
+		if (count == 40) {
+			days.clear();
+			days.add("Weekends");
+		}
+		return days;
+	}
+
+
+	@Override
+	public void onBackPressed() {
+		Intent i = new Intent(this, MainActivity.class);
+		i.putExtra("tab", 2);
+		startActivity(i);
+		finish(); // removes this activity from memory
+	}
+	
+	
 	
 }

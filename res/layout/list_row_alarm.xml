@@ -21,7 +21,7 @@
         android:layout_alignLeft="@+id/alarm_list_row_name"
         android:layout_below="@+id/alarm_list_row_name"
         android:layout_marginTop="2dp"
-        android:text="9:00\t  M, W, F"
+        android:text="9:00 AM\t  [M, W, F]"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <CheckBox
@@ -31,6 +31,10 @@
         android:layout_alignParentRight="true"
         android:layout_marginTop="25dp"
         android:layout_marginRight="24dp"
+   	 	android:clickable="false"
+		android:descendantFocusability="blocksDescendants"
+		android:focusable="false"
+		android:focusableInTouchMode="false"
         android:scaleX="1.5"
         android:scaleY="1.5" />
 

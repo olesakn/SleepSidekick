@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TextView;
 
 public class AlarmsCustomAdapter extends BaseAdapter {
@@ -47,17 +49,20 @@ public class AlarmsCustomAdapter extends BaseAdapter {
 			v = vi.inflate(R.layout.list_row_alarm, null);
 		}
 		
-		Alarm alarm = alarms.get(index);
+		final Alarm alarm = alarms.get(index);
 
 		TextView name = (TextView) v.findViewById(R.id.alarm_list_row_name);
 		TextView time = (TextView) v.findViewById(R.id.alarm_list_row_time);
 		CheckBox enabled = (CheckBox) v.findViewById(R.id.alarm_list_row_checkbox);
-		
+		String am_pm = " PM";
+		if (alarm.isAm())
+			am_pm = " AM";
 		name.setText(alarm.getName());
-		time.setText(alarm.getHour() + ":" + alarm.getMinute() + "\t  " + "M, W, F");
-		enabled.setChecked(true);
+		time.setText(alarm.getHour() + ":" + alarm.getMinute() + am_pm + "\t  " + alarm.getDays());
+		enabled.setChecked(alarm.isEnabled());
 
 		return v;
 	}
+
 }	
 

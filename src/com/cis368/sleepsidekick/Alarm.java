@@ -1,13 +1,16 @@
 package com.cis368.sleepsidekick;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class Alarm implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private String 	name, date, hour, minute, sound, task, snooze;
-	private boolean repeat, am;
-	private int[] days;
+	private boolean repeat, am, enabled;
+	private ArrayList<String> days;
 	
 	public Alarm() {
 		this.name = "";
@@ -19,13 +22,12 @@ public class Alarm implements Serializable {
 		this.snooze = "";
 		this.repeat = false;
 		this.am = true;
-		this.days = new int[7];
-		for (int i = 0; i < days.length; i++)
-			this.days[i] = 0;
+		this.days = new ArrayList<String>();
+		this.enabled = true;
 	}
 	
 	public Alarm(String name, String date, String hour, String minute, boolean am, 
-				String sound, String task, String snooze, boolean repeat, int[] days) {
+				String sound, String task, String snooze, boolean repeat, ArrayList<String> days) {
 		this.name = name;
 		this.date = date;
 		this.hour = hour;
@@ -36,6 +38,7 @@ public class Alarm implements Serializable {
 		this.repeat = repeat;
 		this.am = am;
 		this.days = days;
+		this.enabled = true;
 	}
 
 	public String getName() {
@@ -108,5 +111,25 @@ public class Alarm implements Serializable {
 
 	public void setAm(boolean am) {
 		this.am = am;
+	}
+
+	public String getDays() {
+		if (days.size() > 0)
+			return days.toString();
+		else {
+			return this.date;
+		}
+	}
+
+	public void setDays(ArrayList<String> days) {
+		this.days = days;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+	
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 }

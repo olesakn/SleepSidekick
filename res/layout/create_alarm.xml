@@ -55,7 +55,7 @@
         android:gravity="center">
 
         <ToggleButton
-            android:id="@+id/toggleButton1"
+            android:id="@+id/create_alarm_toggle_Su"
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:text="ToggleButton"
@@ -63,7 +63,7 @@
             android:textOn="S"/>
 
         <ToggleButton
-            android:id="@+id/toggleButton2"
+            android:id="@+id/create_alarm_toggle_M"
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:textOff="M"
@@ -71,7 +71,7 @@
             android:text="ToggleButton" />
 
         <ToggleButton
-            android:id="@+id/toggleButton3"
+            android:id="@+id/create_alarm_toggle_Tu"
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:textOff="T"
@@ -79,7 +79,7 @@
             android:text="ToggleButton" />
 
         <ToggleButton
-            android:id="@+id/toggleButton4"
+            android:id="@+id/create_alarm_toggle_W"
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:textOff="W"
@@ -87,7 +87,7 @@
             android:text="ToggleButton" />
 
         <ToggleButton
-            android:id="@+id/toggleButton5"
+            android:id="@+id/create_alarm_toggle_Th"
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:textOff="T"
@@ -95,7 +95,7 @@
             android:text="ToggleButton" />
 
         <ToggleButton
-            android:id="@+id/toggleButton6"
+            android:id="@+id/create_alarm_toggle_F"
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:textOff="F"
@@ -103,7 +103,7 @@
             android:text="ToggleButton" />
 
         <ToggleButton
-            android:id="@+id/toggleButton7"
+            android:id="@+id/create_alarm_toggle_Sa"
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:textOff="S"

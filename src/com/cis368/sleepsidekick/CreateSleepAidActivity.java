@@ -22,7 +22,6 @@ public class CreateSleepAidActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.create_sleep_aid);
-		getActionBar().setTitle("Create Sleep Aid");
 	
 		name = (TextView) this.findViewById(R.id.create_sleep_aid_name);
 		dateButton = (Button) this.findViewById(R.id.create_sleep_aid_button_date);
@@ -31,7 +30,7 @@ public class CreateSleepAidActivity extends Activity {
 		volumeBar = (SeekBar) this.findViewById(R.id.create_sleep_aid_seekbar_volume);
 		brightnessBar = (SeekBar) this.findViewById(R.id.create_sleep_aid_seekbar_brightness);
 		repeat = (CheckBox) this.findViewById(R.id.create_sleep_aid_checkbox_repeat);
-
+		
 		
 		saveButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
