@@ -15,7 +15,7 @@
     </ListView>
 
     <Button
-        android:id="@+id/sleep_aids_button_create_new_alarm"
+        android:id="@+id/sleep_aids_button_create"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

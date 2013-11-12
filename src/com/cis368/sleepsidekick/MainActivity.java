@@ -27,6 +27,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	SectionsPagerAdapter mSectionsPagerAdapter;
 	ViewPager viewPager;
 	public static ArrayList<Alarm> alarms;
+	public static ArrayList<SleepAid> sleepAids;
 	
 
 	/*********************************************** 
@@ -65,7 +66,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		
 		if (alarms == null)
 			alarms = new ArrayList<Alarm>();
-		
+		if (sleepAids == null)
+			sleepAids = new ArrayList<SleepAid>();
 		Intent i = this.getIntent();
 		int tab = i.getIntExtra("tab", 1);
 		viewPager.setCurrentItem(tab);

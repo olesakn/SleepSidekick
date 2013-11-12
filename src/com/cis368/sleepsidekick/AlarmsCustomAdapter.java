@@ -44,7 +44,7 @@ public class AlarmsCustomAdapter extends BaseAdapter {
 
 		if (v == null) {
 			LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			v = vi.inflate(R.layout.alarm_list_row, null);
+			v = vi.inflate(R.layout.list_row_alarm, null);
 		}
 		
 		Alarm alarm = alarms.get(index);

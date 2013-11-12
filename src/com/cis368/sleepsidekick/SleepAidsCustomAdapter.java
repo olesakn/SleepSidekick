@@ -12,22 +12,22 @@ import android.widget.TextView;
 
 public class SleepAidsCustomAdapter extends BaseAdapter {
 
-	private ArrayList<Alarm> alarms;
+	private ArrayList<SleepAid> sleepAids;
 	private Context context;
 
-	SleepAidsCustomAdapter (Context c, ArrayList<Alarm> a) {
-		alarms = a;
+	SleepAidsCustomAdapter (Context c, ArrayList<SleepAid> a) {
+		sleepAids = a;
 		context = c;
 	}
 	
 	@Override
 	public int getCount() {
-		return alarms.size();
+		return sleepAids.size();
 	}
 
 	@Override
 	public Object getItem(int index) {
-		return alarms.get(index);
+		return sleepAids.get(index);
 	}
 
 	@Override
@@ -40,18 +40,9 @@ public class SleepAidsCustomAdapter extends BaseAdapter {
 
 		if (v == null) {
 			LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			v = vi.inflate(R.layout.alarm_list_row, null);
+			v = vi.inflate(R.layout.list_row_sleep_aid, null);
 		}
-		
-		Alarm alarm = alarms.get(index);
 
-		TextView name = (TextView) v.findViewById(R.id.alarm_list_row_name);
-		TextView time = (TextView) v.findViewById(R.id.alarm_list_row_time);
-		CheckBox enabled = (CheckBox) v.findViewById(R.id.alarm_list_row_checkbox);
-		
-		name.setText(alarm.getName());
-		time.setText(alarm.getHour() + ":" + alarm.getMinute() + "\t  " + "M, W, F");
-		enabled.setChecked(true);
 
 		return v;
 	}

@@ -18,12 +18,37 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
         <activity 
             android:name="com.cis368.sleepsidekick.CreateAlarmActivity"
             android:label="Create Alarm" />
+        
+        <activity 
+            android:name="com.cis368.sleepsidekick.CreateSleepAidActivity"
+            android:label="Create Sleep Aid" />
+        
+        <activity 
+            android:name="com.cis368.sleepsidekick.ScheduleActivity"
+            android:label="Schedule" />
+        
+        <activity 
+            android:name="com.cis368.sleepsidekick.StatisticsActivity"
+            android:label="Statistics" />
+        
+        <activity 
+            android:name="com.cis368.sleepsidekick.SleepingActivity"
+            android:label="Sleep"/>
+        
+        <activity 
+            android:name="com.cis368.sleepsidekick.TaskMathProblem"
+            android:label="Wake Up!" />
+        
+        <activity 
+            android:name="com.cis368.sleepsidekick.WakeUpActivity"
+            android:label="Wake Up!" />
+        
     </application>
 </manifest>
