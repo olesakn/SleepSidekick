@@ -43,7 +43,18 @@ public class SleepAidsCustomAdapter extends BaseAdapter {
 			v = vi.inflate(R.layout.list_row_sleep_aid, null);
 		}
 
+		
+		TextView name = (TextView) v.findViewById(R.id.sleep_aid_list_row_name);
+		TextView other = (TextView) v.findViewById(R.id.sleep_aid_list_row_sound_and_days);
+		CheckBox repeat = (CheckBox) v.findViewById(R.id.sleep_aid_list_row_checkbox);
+		
 
+		SleepAid s = MainActivity.sleepAids.get(index);
+		
+		name.setText(s.getName());
+		other.setText(s.getSound() + "\t   " + s.getDays());
+		repeat.setChecked(s.isEnabled());
+		
 		return v;
 	}
 }

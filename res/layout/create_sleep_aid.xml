@@ -24,32 +24,24 @@
             android:inputType="textCapSentences"
             android:hint="Name" />
 
-        <TimePicker
-            android:id="@+id/create_sleep_aid_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-40dp"
-            android:hapticFeedbackEnabled="true"
-            android:scaleX="0.9"
-            android:scaleY="0.9" />
-
         <Button
             android:id="@+id/create_sleep_aid_button_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-40dp"
+            android:layout_marginTop="30dp"
             android:gravity="center"
+            android:height="55dp"
             android:text="11/15/2013"
-            android:textSize="15dp" />
+            android:textSize="16dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:gravity="center" >
 
             <ToggleButton
-                android:id="@+id/toggleButton1"
+                android:id="@+id/create_sleep_aid_toggle_Su"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
                 android:text="ToggleButton"
@@ -57,7 +49,7 @@
                 android:textOn="S" />
 
             <ToggleButton
-                android:id="@+id/toggleButton2"
+                android:id="@+id/create_sleep_aid_toggle_M"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
                 android:text="ToggleButton"
@@ -65,7 +57,7 @@
                 android:textOn="M" />
 
             <ToggleButton
-                android:id="@+id/toggleButton3"
+                android:id="@+id/create_sleep_aid_toggle_Tu"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
                 android:text="ToggleButton"
@@ -73,7 +65,7 @@
                 android:textOn="T" />
 
             <ToggleButton
-                android:id="@+id/toggleButton4"
+                android:id="@+id/create_sleep_aid_toggle_W"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
                 android:text="ToggleButton"
@@ -81,7 +73,7 @@
                 android:textOn="W" />
 
             <ToggleButton
-                android:id="@+id/toggleButton5"
+                android:id="@+id/create_sleep_aid_toggle_Th"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
                 android:text="ToggleButton"
@@ -89,7 +81,7 @@
                 android:textOn="T" />
 
             <ToggleButton
-                android:id="@+id/toggleButton6"
+                android:id="@+id/create_sleep_aid_toggle_F"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
                 android:text="ToggleButton"
@@ -97,7 +89,7 @@
                 android:textOn="F" />
 
             <ToggleButton
-                android:id="@+id/toggleButton7"
+                android:id="@+id/create_sleep_aid_toggle_Sa"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
                 android:text="ToggleButton"
@@ -116,13 +108,13 @@
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content" 
-        	android:layout_marginTop="40dp"
+        	android:layout_marginTop="20dp"
         	android:layout_marginLeft="60dp" >
 
             <TableRow
                 android:id="@+id/tableRow1"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center" >
 
                 <TextView
@@ -144,11 +136,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content" 
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/create_sleep_aid_text_volume"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -163,7 +157,7 @@
                 android:layout_weight="1" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/create_sleep_aid_text_brightness"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

@@ -29,9 +29,7 @@ import android.widget.ToggleButton;
 public class CreateAlarmActivity extends FragmentActivity {
 	
 	public static String date;
-	
 	private Button saveButton;
-
 	private static Button dateButton;
 	private Spinner soundSpinner, taskSpinner, snoozeSpinner;
 	private EditText nameText;
@@ -67,27 +65,28 @@ public class CreateAlarmActivity extends FragmentActivity {
 				timePicker.setCurrentHour(Integer.parseInt(a.getHour()));
 			String days = a.getDays();
 			
-			if (days.equals("[Everyday]"))
-				days = "Su,M,Tu,W,Th,F,Sa";
-			if (days.equals("[Weekdays]"))
-				days = "M,Tu,W,Th,F";
-			if (days.equals("[Weekends]"))
-				days = "Su,Sa";
-					
-			if (days.contains("Su"))
-				((ToggleButton) findViewById(R.id.create_alarm_toggle_Su)).setChecked(true);
-			if (days.contains("M"))
-				((ToggleButton) findViewById(R.id.create_alarm_toggle_M)).setChecked(true);
-			if (days.contains("Tu"))
-				((ToggleButton) findViewById(R.id.create_alarm_toggle_Tu)).setChecked(true);
-			if (days.contains("W"))
-				((ToggleButton) findViewById(R.id.create_alarm_toggle_W)).setChecked(true);
-			if (days.contains("Th"))
-				((ToggleButton) findViewById(R.id.create_alarm_toggle_Th)).setChecked(true);
-			if (days.contains("F"))
-				((ToggleButton) findViewById(R.id.create_alarm_toggle_F)).setChecked(true);
-			if (days.contains("Sa"))
-				((ToggleButton) findViewById(R.id.create_alarm_toggle_Sa)).setChecked(true);
+			if (a.isRepeat()) {
+				if (days.equals("[Everyday]"))
+					days = "Su,M,Tu,W,Th,F,Sa";
+				if (days.equals("[Weekdays]"))
+					days = "M,Tu,W,Th,F";
+				if (days.equals("[Weekends]"))
+					days = "Su,Sa";
+				if (days.contains("Su"))
+					((ToggleButton) findViewById(R.id.create_alarm_toggle_Su)).setChecked(true);
+				if (days.contains("M"))
+					((ToggleButton) findViewById(R.id.create_alarm_toggle_M)).setChecked(true);
+				if (days.contains("Tu"))
+					((ToggleButton) findViewById(R.id.create_alarm_toggle_Tu)).setChecked(true);
+				if (days.contains("W"))
+					((ToggleButton) findViewById(R.id.create_alarm_toggle_W)).setChecked(true);
+				if (days.contains("Th"))
+					((ToggleButton) findViewById(R.id.create_alarm_toggle_Th)).setChecked(true);
+				if (days.contains("F"))
+					((ToggleButton) findViewById(R.id.create_alarm_toggle_F)).setChecked(true);
+				if (days.contains("Sa"))
+					((ToggleButton) findViewById(R.id.create_alarm_toggle_Sa)).setChecked(true);
+			}
 		}
 	}
 
@@ -100,14 +99,15 @@ public class CreateAlarmActivity extends FragmentActivity {
 				
 				Alarm alarm = new Alarm();
 				alarm.setName(nameText.getText().toString());
+				if (nameText.getText().length() == 0)
+					alarm.setName("Alarm");
 				alarm.setDate(dateButton.getText().toString());
 				int hour = timePicker.getCurrentHour();
+				alarm.setAm(true);
 				if (hour >= 12) {
 					hour -= 12;
 					alarm.setAm(false);
-				}
-				else
-					alarm.setAm(true);
+				}	
 				alarm.setHour(hour + "");
 				alarm.setMinute(timePicker.getCurrentMinute().toString());
 				alarm.setRepeat(repeatCheckBox.isChecked());
@@ -122,10 +122,7 @@ public class CreateAlarmActivity extends FragmentActivity {
 				else
 					MainActivity.alarms.add(alarm);
 
-				Intent i = new Intent(v.getContext(), MainActivity.class);
-				i.putExtra("tab", 2);
-				startActivity(i);
-				finish(); // removes this activity from memory
+				onBackPressed(); // return to alarms screen
 			}
 		});
 		
@@ -215,47 +212,48 @@ public class CreateAlarmActivity extends FragmentActivity {
 	 ********************************************************************/
 	private ArrayList<String> getRepeatedDays() {
 		ArrayList<String> days = new ArrayList<String>();
-		int count = 0;
-		
-		if (((ToggleButton)findViewById(R.id.create_alarm_toggle_Su)).isChecked()) {
-			days.add("Su");
-			count += 20;
-		}
-		if (((ToggleButton)findViewById(R.id.create_alarm_toggle_M)).isChecked()) {
-			days.add("M");
-			count++;
-		}
-		if (((ToggleButton)findViewById(R.id.create_alarm_toggle_Tu)).isChecked()) {
-			days.add("Tu");
-			count++;
-		}
-		if (((ToggleButton)findViewById(R.id.create_alarm_toggle_W)).isChecked()) {
-			days.add("W");
-			count++;
-		}
-		if (((ToggleButton)findViewById(R.id.create_alarm_toggle_Th)).isChecked()) {
-			days.add("Th");
-			count++;
-		}
-		if (((ToggleButton)findViewById(R.id.create_alarm_toggle_F)).isChecked()) {
-			days.add("F");
-			count++;
-		}
-		if (((ToggleButton)findViewById(R.id.create_alarm_toggle_Sa)).isChecked()) {
-			days.add("Sa");
-			count += 20;
-		}
-		if (count == 45 ) {
-			days.clear();
-			days.add("Everyday");
-		}
-		if (count == 5) {
-			days.clear();
-			days.add("Weekdays");
-		}
-		if (count == 40) {
-			days.clear();
-			days.add("Weekends");
+		if (repeatCheckBox.isChecked()) {
+			int count = 0;
+			if (((ToggleButton)findViewById(R.id.create_alarm_toggle_Su)).isChecked()) {
+				days.add("Su");
+				count += 20;
+			}
+			if (((ToggleButton)findViewById(R.id.create_alarm_toggle_M)).isChecked()) {
+				days.add("M");
+				count++;
+			}
+			if (((ToggleButton)findViewById(R.id.create_alarm_toggle_Tu)).isChecked()) {
+				days.add("Tu");
+				count++;
+			}
+			if (((ToggleButton)findViewById(R.id.create_alarm_toggle_W)).isChecked()) {
+				days.add("W");
+				count++;
+			}
+			if (((ToggleButton)findViewById(R.id.create_alarm_toggle_Th)).isChecked()) {
+				days.add("Th");
+				count++;
+			}
+			if (((ToggleButton)findViewById(R.id.create_alarm_toggle_F)).isChecked()) {
+				days.add("F");
+				count++;
+			}
+			if (((ToggleButton)findViewById(R.id.create_alarm_toggle_Sa)).isChecked()) {
+				days.add("Sa");
+				count += 20;
+			}
+			if (count == 45 ) {
+				days.clear();
+				days.add("Everyday");
+			}
+			if (count == 5) {
+				days.clear();
+				days.add("Weekdays");
+			}
+			if (count == 40) {
+				days.clear();
+				days.add("Weekends");
+			}
 		}
 		return days;
 	}

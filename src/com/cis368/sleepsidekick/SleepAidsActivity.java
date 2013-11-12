@@ -4,14 +4,20 @@ import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.TextView;
 
 public class SleepAidsActivity extends Fragment {
 	
@@ -19,13 +25,31 @@ public class SleepAidsActivity extends Fragment {
 	private Button createButton;
 	private ListView listView;
 	private SleepAidsCustomAdapter adapter;
+	private View rootView;
+	private TextView noneCreated;
 	
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_sleep_aids, container, false);
+		rootView = inflater.inflate(R.layout.fragment_sleep_aids, container, false);
 
-		// Build GUI here
-
+		noneCreated = (TextView) rootView.findViewById(R.id.sleep_aids_text_none_created);
+		if (MainActivity.sleepAids.size() > 0)
+			noneCreated.setText("");
+		
+		// Create List View
+		listView = (ListView) rootView.findViewById(R.id.sleep_aids_list_view);
+		adapter = new SleepAidsCustomAdapter(rootView.getContext(), MainActivity.sleepAids);
+		listView.setAdapter(adapter);
+		listView.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> a, View view, int pos, long id) {
+				SleepAid s = MainActivity.sleepAids.get(pos);
+				s.setEnabled(!s.isEnabled());
+				adapter.notifyDataSetChanged();
+			}		
+		});
+		registerForContextMenu(listView);
+		
+		// Create Button
 		createButton = (Button) rootView.findViewById(R.id.sleep_aids_button_create);
 		createButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
@@ -34,20 +58,43 @@ public class SleepAidsActivity extends Fragment {
 			}
 		});
 		
-		listView = (ListView) rootView.findViewById(R.id.sleep_aids_list_view);
-		adapter = new SleepAidsCustomAdapter(rootView.getContext(), MainActivity.sleepAids);
-		listView.setAdapter(adapter);
-		listView.setDivider(null);
-		listView.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView<?> adapter, View view, int pos, long id) {
-				editSleepAid(view.getContext(), pos);
-			}		
-		});
-		
 		return rootView;
 	}
 	
-	private void editSleepAid(Context context, int pos) {
-		// TODO
+	private void editSleepAid(int pos) {
+		Intent i = new Intent(rootView.getContext(), CreateSleepAidActivity.class);
+		i.putExtra("edit_position", pos);
+		startActivity(i);
+		getActivity().finish();
+	}
+	
+	
+	/****************************************************************
+	 * Create Context Menu
+	 ****************************************************************/
+	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
+		super.onCreateContextMenu(menu, v, menuInfo);            
+		menu.add(Menu.NONE, R.id.menu_alarm_edit, Menu.NONE, "Edit");
+        menu.add(Menu.NONE, R.id.menu_alarm_delete, Menu.NONE, "Delete");
+	}
+	
+	
+	/****************************************************************
+	 * On List Item Selected Context Menu
+	 ****************************************************************/
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
+		AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
+		if (item.getItemId() == R.id.menu_alarm_edit) {
+			editSleepAid(info.position);
+			return true;
+		}
+		else if (item.getItemId() == R.id.menu_alarm_delete) {
+			MainActivity.sleepAids.remove(info.position);
+			adapter.notifyDataSetChanged();
+			return true;
+		}
+		else
+			return super.onContextItemSelected(item);
 	}
 }

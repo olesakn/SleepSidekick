@@ -20,21 +20,22 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.TextView;
 
 public class AlarmsActivity extends Fragment {
 	
 	public static final String ARG_SECTION_NUMBER = "section_number";
 	private ListView listView;
 	private AlarmsCustomAdapter adapter;
-	View rootView;
+	private View rootView;
+	private TextView noneCreated;
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		rootView = inflater.inflate(R.layout.fragment_alarms, container, false);
 		
-		
-		if (MainActivity.alarms.size() == 0)
-			MainActivity.alarms.add(new Alarm("Class", "11/15/2013", "7", "30", 
-						true, "Music", "Math Problem", "5 Minutes", true, new ArrayList<String>() {{add("M"); add("W"); add("F");}}));
+		noneCreated = (TextView) rootView.findViewById(R.id.alarms_text_none_created);
+		if (MainActivity.alarms.size() > 0)
+			noneCreated.setText("");
 		
 		// List View
 		listView = (ListView) rootView.findViewById(R.id.alarms_list_view);
@@ -45,12 +46,11 @@ public class AlarmsActivity extends Fragment {
 				Alarm alarm = MainActivity.alarms.get(pos);
 				alarm.setEnabled(!alarm.isEnabled());
 				adapter.notifyDataSetChanged();
-				//editAlarm(pos);
 			}		
 		});
 		registerForContextMenu(listView);
 
-		// Save Button
+		// Create Button
 		Button createNewAlarm = (Button) rootView.findViewById(R.id.alarms_button_create_new_alarm);
 		createNewAlarm.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
@@ -94,6 +94,7 @@ public class AlarmsActivity extends Fragment {
 		}
 		else if (item.getItemId() == R.id.menu_alarm_delete) {
 			MainActivity.alarms.remove(info.position);
+			adapter.notifyDataSetChanged();
 			return true;
 		}
 		else

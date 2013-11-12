@@ -1,10 +1,12 @@
 package com.cis368.sleepsidekick;
 
+import java.util.ArrayList;
+
 public class SleepAid {
 
 	private String name, sound, date;
-	private int[] days;
-	private boolean repeat;
+	private ArrayList<String> days;
+	private boolean repeat, enabled;
 	
 	
 	
@@ -12,21 +14,23 @@ public class SleepAid {
 		name = "";
 		sound = "";
 		date = "";
-		days = new int[7];
+		days = new ArrayList<String>();
 		repeat = false;
+		enabled = true;
 		
 	}
 	
 	public SleepAid(String name,
 					String date,
 					String sound,
-					int[] days,
+					ArrayList<String> days,
 					boolean repeat) {	
 		this.name = name;
 		this.date = date;
 		this.sound = sound;
 		this.days= days;
 		this.repeat = repeat;
+		this.enabled= true;
 	}
 
 	public String getName() {
@@ -53,11 +57,14 @@ public class SleepAid {
 		this.date = date;
 	}
 
-	public int[] getDays() {
-		return days;
+	public String getDays() {
+		if (days.size() > 0)
+			return days.toString();
+		else
+			return this.date;
 	}
 
-	public void setDays(int[] days) {
+	public void setDays(ArrayList<String> days) {
 		this.days = days;
 	}
 
@@ -67,6 +74,14 @@ public class SleepAid {
 
 	public void setRepeat(boolean repeat) {
 		this.repeat = repeat;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 	
 	

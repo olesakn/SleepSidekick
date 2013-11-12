@@ -25,5 +25,15 @@
         android:layout_centerHorizontal="true"
         android:height="50dp"
         android:text="Create New Alarm" />
+    
+    <TextView
+        android:id="@+id/alarms_text_none_created"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="[ No alarms have been created ]"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>
