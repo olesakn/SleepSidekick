@@ -33,7 +33,9 @@ public class SleepAidsActivity extends Fragment {
 		rootView = inflater.inflate(R.layout.fragment_sleep_aids, container, false);
 
 		noneCreated = (TextView) rootView.findViewById(R.id.sleep_aids_text_none_created);
-		if (MainActivity.sleepAids.size() > 0)
+		if (MainActivity.sleepAids.size() == 0)
+			noneCreated.setText("|   No sleeps aids have been created   |");
+		else
 			noneCreated.setText("");
 		
 		// Create List View
@@ -91,6 +93,8 @@ public class SleepAidsActivity extends Fragment {
 		}
 		else if (item.getItemId() == R.id.menu_alarm_delete) {
 			MainActivity.sleepAids.remove(info.position);
+			if (MainActivity.sleepAids.size() == 0)
+				noneCreated.setText("|   No sleeps aids have been created   |");
 			adapter.notifyDataSetChanged();
 			return true;
 		}

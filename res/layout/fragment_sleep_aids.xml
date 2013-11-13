@@ -30,7 +30,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:text="[ No sleep aids have been created ]"
+        android:text=""
         android:textAppearance="?android:attr/textAppearanceMedium" />
     
 </RelativeLayout>

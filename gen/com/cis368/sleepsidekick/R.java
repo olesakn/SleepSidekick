@@ -28,14 +28,13 @@ public final class R {
         public static final int sky_background=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f09003a;
+        public static final int action_settings=0x7f09003b;
         public static final int alarm_list_row_checkbox=0x7f090033;
         public static final int alarm_list_row_name=0x7f090031;
         public static final int alarm_list_row_time=0x7f090032;
         public static final int alarms_button_create_new_alarm=0x7f090026;
         public static final int alarms_list_view=0x7f090025;
         public static final int alarms_text_none_created=0x7f090027;
-        public static final int calendarView1=0x7f090037;
         public static final int create_alarm_button_date=0x7f090002;
         public static final int create_alarm_button_save=0x7f090014;
         public static final int create_alarm_name=0x7f090000;
@@ -72,9 +71,11 @@ public final class R {
         public static final int home_button_stats=0x7f09002c;
         public static final int home_digitalClock=0x7f090029;
         public static final int home_textview_date=0x7f09002a;
-        public static final int menu_alarm_delete=0x7f090038;
-        public static final int menu_alarm_edit=0x7f090039;
+        public static final int menu_alarm_delete=0x7f090039;
+        public static final int menu_alarm_edit=0x7f09003a;
         public static final int pager=0x7f090030;
+        public static final int schedule_calendar_view=0x7f090037;
+        public static final int schedule_list_view=0x7f090038;
         public static final int sleep_aid_list_row_checkbox=0x7f090036;
         public static final int sleep_aid_list_row_name=0x7f090034;
         public static final int sleep_aid_list_row_sound_and_days=0x7f090035;
@@ -96,12 +97,13 @@ public final class R {
         public static final int fragment_sleep_aids=0x7f030004;
         public static final int home=0x7f030005;
         public static final int list_row_alarm=0x7f030006;
-        public static final int list_row_sleep_aid=0x7f030007;
-        public static final int schedule=0x7f030008;
-        public static final int sleeping=0x7f030009;
-        public static final int statistics=0x7f03000a;
-        public static final int task_math_problem=0x7f03000b;
-        public static final int wake_up=0x7f03000c;
+        public static final int list_row_calendar=0x7f030007;
+        public static final int list_row_sleep_aid=0x7f030008;
+        public static final int schedule=0x7f030009;
+        public static final int sleeping=0x7f03000a;
+        public static final int statistics=0x7f03000b;
+        public static final int task_math_problem=0x7f03000c;
+        public static final int wake_up=0x7f03000d;
     }
     public static final class menu {
         public static final int alarm_context_menu=0x7f080000;

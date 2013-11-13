@@ -5,11 +5,21 @@
     android:background="@drawable/sky_background">
 
     <CalendarView
-        android:id="@+id/calendarView1"
+        android:id="@+id/schedule_calendar_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
+        android:layout_height="300dp"
         android:layout_alignParentTop="true"
-        android:showWeekNumber="false" />
+        android:showWeekNumber="false"
+        android:shownWeekCount="4" />
+
+    <ListView
+        android:id="@+id/schedule_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/schedule_calendar_view"
+        android:layout_centerHorizontal="true" >
+
+    </ListView>
 
 </RelativeLayout>
