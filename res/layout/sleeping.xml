@@ -27,38 +27,21 @@
         android:textSize="40dp" />
 
     <Button
-        android:id="@+id/sleeping_button_disable_alarm"
+        android:id="@+id/sleeping_button_alarm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView3"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="26dp"
         android:height="75dp"
-        android:text="Disable Alarm"
+        android:text="I'm awake!"
         android:width="200dp" />
-
-    <SeekBar
-        android:id="@+id/seekBar1"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_below="@+id/textView3" />
-
-    <Button
-        android:id="@+id/sleeping_button_disable_sleep_aid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/seekBar1"
-        android:layout_centerHorizontal="true"
-        android:text="Disable SleepAid"
-        android:textSize="15dp"
-        android:width="175dp" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button2"
+        android:layout_above="@+id/sleeping_button_alarm"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="14dp"
         android:gravity="center"
@@ -82,10 +65,20 @@
         android:id="@+id/imageButton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button1"
+        android:layout_above="@+id/sleeping_button_sleep_air"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView3"
         android:layout_toLeftOf="@+id/textView2"
         android:src="@android:drawable/btn_star" />
+
+    <Button
+        android:id="@+id/sleeping_button_sleep_air"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:text="Mute Sleep Aid"
+        android:textSize="15dp"
+        android:width="175dp" />
 
 </RelativeLayout>
