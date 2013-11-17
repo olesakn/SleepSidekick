@@ -1,7 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@drawable/sky_background" >
+
     
+<TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="February 10th"
+        android:textSize="30dp"
+        android:textColor="@android:color/white"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+<DigitalClock
+        android:id="@+id/digitalClock1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:text="DigitalClock"
+        android:textColor="@android:color/white"
+        android:textSize="40dp" />
+
+    <Button
+        android:id="@+id/wake_up_button_snooze"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:height="200dp"
+        android:text="Snooze"
+        android:textSize="40dp"
+        android:textColor="@android:color/white"
+        android:width="300dp" />
+
+    <Button
+        android:id="@+id/wake_up_button_wake_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/wake_up_button_snooze"
+        android:layout_below="@+id/wake_up_button_snooze"
+        android:layout_marginTop="24dp"
+        android:height="75dp"
+        android:text="Wake Up"
+        android:textColor="@android:color/white"
+        android:width="300dp" />
 
 </RelativeLayout>

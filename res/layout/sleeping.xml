@@ -1,8 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" 
-    android:background="@drawable/sky_background">
-    
+    android:layout_height="match_parent"
+    android:background="@drawable/sky_background" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="February 10th"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/white"
+        android:textSize="30dp" />
+
+    <DigitalClock
+        android:id="@+id/digitalClock1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:text="DigitalClock"
+        android:textColor="@android:color/white"
+        android:textSize="40dp" />
+
+    <Button
+        android:id="@+id/sleeping_button_disable_alarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="26dp"
+        android:height="75dp"
+        android:text="Disable Alarm"
+        android:width="200dp" />
+
+    <SeekBar
+        android:id="@+id/seekBar1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_below="@+id/textView3" />
+
+    <Button
+        android:id="@+id/sleeping_button_disable_sleep_aid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/seekBar1"
+        android:layout_centerHorizontal="true"
+        android:text="Disable SleepAid"
+        android:textSize="15dp"
+        android:width="175dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
+        android:gravity="center"
+        android:text="Alarm set for 9:00 am\nTuesday, February 21\n12 hours, 30 mins from now"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/digitalClock1"
+        android:layout_below="@+id/digitalClock1"
+        android:layout_marginTop="41dp"
+        android:gravity="center"
+        android:text="10 minutes left of Nature ambience"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:width="200dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button1"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView3"
+        android:layout_toLeftOf="@+id/textView2"
+        android:src="@android:drawable/btn_star" />
 
 </RelativeLayout>

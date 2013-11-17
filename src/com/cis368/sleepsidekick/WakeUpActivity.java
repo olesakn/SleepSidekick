@@ -15,14 +15,14 @@ public class WakeUpActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.wake_up);
 		
-		snooze = new Button(this);
+		snooze = (Button) findViewById(R.id.wake_up_button_snooze);
 		snooze.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
 				startActivity(new Intent(v.getContext(), SleepingActivity.class));
 				finish();
 			}
 		});
-		awake = new Button(this);
+		awake = (Button) findViewById(R.id.wake_up_button_wake_up);
 		awake.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
 				Intent i = new Intent(v.getContext(), MainActivity.class);

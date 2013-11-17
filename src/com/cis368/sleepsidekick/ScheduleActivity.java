@@ -128,6 +128,4 @@ public class ScheduleActivity extends Activity {
 		startActivity(i);
 		finish(); // removes this activity from memory
 	}
-	
-	
 }

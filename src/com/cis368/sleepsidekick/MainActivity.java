@@ -127,4 +127,14 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 			return null;
 		}
 	}
+
+	@Override
+	public void onBackPressed() {
+		if (viewPager.getCurrentItem() == 1)
+			finish();
+		else
+			viewPager.setCurrentItem(1);
+	}
+	
+	
 }

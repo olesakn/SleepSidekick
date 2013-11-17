@@ -1,15 +1,11 @@
 package com.cis368.sleepsidekick;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import android.support.v4.app.Fragment;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -64,12 +60,6 @@ public class AlarmsActivity extends Fragment {
 		return rootView;
 	}
 
-	private void editAlarm(int pos) {
-		Intent i = new Intent(rootView.getContext(), CreateAlarmActivity.class);
-		i.putExtra("edit_position", pos);
-		startActivity(i);
-		getActivity().finish();
-	}
 	
 	/****************************************************************
 	 * Create Context Menu
