@@ -22,8 +22,6 @@ public class SleepingActivity extends Activity implements OnClickListener {
 		disableAlarm = (Button) findViewById(R.id.sleeping_button_alarm);
 		disableAlarm.setOnClickListener(this);
 		
-		
-		
 		// this is for testing purposes
 		// switches to "alarm going off" after 10 seconds
 		try {
