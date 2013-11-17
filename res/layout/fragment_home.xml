@@ -59,24 +59,23 @@
 
     <Button
         android:id="@+id/home_button_schedule"
+        android:drawableBottom="@drawable/schedule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/home_button_stats"
         android:layout_alignLeft="@+id/home_button_go_to_sleep"
-        android:layout_below="@+id/textView1"
-        android:layout_marginTop="60dp"
-        android:height="75dp"
         android:text="Schedule"
         android:textColor="@android:color/white"
         android:width="125dp" />
-    
+
     <Button
         android:id="@+id/home_button_stats"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/home_button_schedule"
-        android:layout_alignBottom="@+id/home_button_schedule"
         android:layout_alignRight="@+id/home_button_go_to_sleep"
-        android:height="75dp"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="21dp"
+        android:drawableBottom="@drawable/stats"
         android:text="Statistics"
         android:textColor="@android:color/white"
         android:width="125dp" />
