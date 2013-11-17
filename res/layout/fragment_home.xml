@@ -29,7 +29,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="February 10th"
+        android:text="November 20th"
         android:textSize="30dp"
         android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />

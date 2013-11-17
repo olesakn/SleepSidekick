@@ -2,6 +2,7 @@ package com.cis368.sleepsidekick;
 
 
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import android.content.Context;
@@ -54,7 +55,9 @@ public class AlarmsCustomAdapter extends BaseAdapter {
 		if (alarm.isAm())
 			am_pm = " AM";
 		name.setText(alarm.getName());
-		time.setText(alarm.getHour() + ":" + alarm.getMinute() + am_pm + "\t  " + alarm.getDays());
+		String hourStr = new DecimalFormat("00").format(Integer.parseInt(alarm.getHour()));
+		String minStr = new DecimalFormat("00").format(Integer.parseInt(alarm.getMinute()));
+		time.setText(hourStr + ":" + minStr + " " +  am_pm + "\t  " + alarm.getDays());
 		enabled.setChecked(alarm.isEnabled());
 
 		return v;

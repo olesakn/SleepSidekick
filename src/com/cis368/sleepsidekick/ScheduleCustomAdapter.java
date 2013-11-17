@@ -1,5 +1,6 @@
 package com.cis368.sleepsidekick;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import android.content.Context;
@@ -48,23 +49,24 @@ public class ScheduleCustomAdapter extends BaseAdapter {
 		
 		try {
 			Alarm alarm = (Alarm) data.get(index);
+			
 			String am_pm = " PM";
 			if (alarm.isAm())
 				am_pm = " AM";
 			name.setText(alarm.getName());
-			other.setText(alarm.getHour() + ":" + alarm.getMinute() + am_pm);
+			String hourStr = new DecimalFormat("00").format(Integer.parseInt(alarm.getHour()));
+			String minStr = new DecimalFormat("00").format(Integer.parseInt(alarm.getMinute()));
+			other.setText(hourStr + ":" + minStr + " " + am_pm + "\t  " + alarm.getDays());
 			enabled.setChecked(alarm.isEnabled());
 			
 		} catch (Exception e) {
 			try {
-				SleepAid s = MainActivity.sleepAids.get(index);
+				SleepAid s = (SleepAid) data.get(index);
 				name.setText(s.getName());
-				other.setText(s.getSound());
+				other.setText(s.getSound() + "\t  " + s.getDays());
 				enabled.setChecked(s.isEnabled());
 			} catch (Exception f) {}
-		}
-		
+		}	
 		return v;
 	}
-
 }

@@ -33,7 +33,6 @@ public class CreateAlarmActivity extends FragmentActivity {
 	private static Button dateButton;
 	private Spinner soundSpinner, taskSpinner, snoozeSpinner;
 	private EditText nameText;
-	private Calendar calendar;
 	private TimePicker timePicker;
 	private CheckBox repeatCheckBox;
 
@@ -58,11 +57,15 @@ public class CreateAlarmActivity extends FragmentActivity {
 			nameText.setText(a.getName());
 			dateButton.setText(a.getDate());
 			repeatCheckBox.setChecked(a.isRepeat());
-			timePicker.setCurrentMinute(Integer.parseInt(a.getMinute()));
-			if (!a.isAm())
-				timePicker.setCurrentHour(Integer.parseInt(a.getHour()+12));
+			int hour = Integer.parseInt(a.getHour());
+			if (a.isAm()) {
+				if (hour == 12)
+					timePicker.setCurrentHour(0);
+			}
 			else
-				timePicker.setCurrentHour(Integer.parseInt(a.getHour()));
+				timePicker.setCurrentHour(hour+12);
+			
+			timePicker.setCurrentMinute(Integer.parseInt(a.getMinute()));
 			String days = a.getDays();
 			
 			if (a.isRepeat()) {
@@ -104,7 +107,11 @@ public class CreateAlarmActivity extends FragmentActivity {
 				alarm.setDate(dateButton.getText().toString());
 				int hour = timePicker.getCurrentHour();
 				alarm.setAm(true);
-				if (hour >= 12) {
+				if (hour == 12)
+					alarm.setAm(false);
+				if (hour == 0)
+					hour = 12;
+				if (hour > 12) {
 					hour -= 12;
 					alarm.setAm(false);
 				}	

@@ -11,6 +11,7 @@ public class Alarm implements Serializable {
 	private String 	name, date, hour, minute, sound, task, snooze;
 	private boolean repeat, am, enabled;
 	private ArrayList<String> days;
+	private ArrayList<String> disabledDates;
 	
 	public Alarm() {
 		this.name = "";

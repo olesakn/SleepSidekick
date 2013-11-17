@@ -22,4 +22,14 @@
 
     </ListView>
 
+    <TextView
+        android:id="@+id/schedule__text_no_tasks_today"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/schedule_calendar_view"
+        android:layout_centerHorizontal="true"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
 </RelativeLayout>

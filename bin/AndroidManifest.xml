@@ -44,6 +44,7 @@
         
         <activity 
             android:name="com.cis368.sleepsidekick.TaskMathProblem"
+            android:windowSoftInputMode="stateAlwaysVisible"
             android:label="Wake Up!" />
         
         <activity 

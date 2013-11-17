@@ -89,6 +89,8 @@ public class CreateSleepAidActivity extends FragmentActivity implements OnSeekBa
 				SleepAid x = new SleepAid();
 				x.setDate(dateButton.getText().toString());
 				x.setName(name.getText().toString());
+				if (x.getName().length() == 0)
+					x.setName("Sleep Aid");
 				x.setRepeat(repeatCheckBox.isChecked());
 				x.setSound(soundSpinner.getSelectedItem().toString());
 				x.setDays(getRepeatedDays());
@@ -98,7 +100,6 @@ public class CreateSleepAidActivity extends FragmentActivity implements OnSeekBa
 					MainActivity.sleepAids.set(edit_position, x);
 				else
 				MainActivity.sleepAids.add(x);
-				
 				onBackPressed(); // go back to sleep aids screen
 			}
 		});
@@ -107,7 +108,6 @@ public class CreateSleepAidActivity extends FragmentActivity implements OnSeekBa
 				showDatePickerDialog(v);
 			}
 		});
-
 
 		// Spinners
 		List<String> list = new ArrayList<String>();
