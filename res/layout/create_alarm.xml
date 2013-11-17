@@ -203,6 +203,7 @@
         android:id="@+id/create_alarm_button_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/save"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:text="Save Alarm" />

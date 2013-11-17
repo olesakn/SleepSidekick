@@ -19,11 +19,12 @@
 
     <Button
         android:id="@+id/alarms_button_create_new_alarm"
+        android:drawableLeft="@drawable/alarm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:height="50dp"
+        android:height="70dp"
         android:text="Create New Alarm" />
     
     <TextView
