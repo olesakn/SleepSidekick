@@ -31,6 +31,5 @@ public class WakeUpActivity extends Activity {
 				finish();
 			}
 		});
-		
-	}	
+	}
 }
