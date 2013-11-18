@@ -43,7 +43,7 @@
             android:label="Sleep"/>
         
         <activity 
-            android:name="com.cis368.sleepsidekick.TaskMathProblem"
+            android:name="com.cis368.sleepsidekick.TaskMathProblemActivity"
             android:windowSoftInputMode="stateAlwaysVisible"
             android:label="Wake Up!" />
         

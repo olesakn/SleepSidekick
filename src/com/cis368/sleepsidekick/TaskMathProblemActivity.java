@@ -2,10 +2,16 @@ package com.cis368.sleepsidekick;
 
 import java.util.Random;
 
+import junit.framework.Test;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.View;
+import android.view.View.OnKeyListener;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -16,6 +22,7 @@ public class TaskMathProblemActivity extends Activity {
 
 	private TextView top, bottom;
 	private EditText answer;
+	private MediaPlayer mp;
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -23,24 +30,32 @@ public class TaskMathProblemActivity extends Activity {
 		
 		top = (TextView) this.findViewById(R.id.task_math_top_num);
 		bottom = (TextView) this.findViewById(R.id.task_math_bottom_num);
-		
+		answer = (EditText) this.findViewById(R.id.task_math_answer);
 		setRandomNumbers();
 		
-		answer = (EditText) this.findViewById(R.id.task_math_answer);
-		answer.setOnEditorActionListener(new EditText.OnEditorActionListener() {
-			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-				if (event != null && actionId == EditorInfo.IME_ACTION_DONE) {
+		mp = MediaPlayer.create(this, R.raw.alarm_tone);
+        mp.setOnCompletionListener(new OnCompletionListener() {
+            public void onCompletion(MediaPlayer mp) {
+                mp.release();
+            }
+        });   
+        mp.start();
+		
+		answer.setOnKeyListener(new OnKeyListener() {
+			public boolean onKey(View v, int keyCode, KeyEvent event) {
+				if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
 					int t = Integer.parseInt(top.getText().toString());	
 					int b = Integer.parseInt(bottom.getText().toString());	
 					int a = Integer.parseInt(answer.getText().toString());	
 					if (t + b == a) {
+						mp.release();
 						Intent i = new Intent(v.getContext(), WakeUpActivity.class);
 						startActivity(i);
 						finish();
 						return true;	
 					}
 					else {
-						Toast.makeText(v.getContext(), "Incorrect Answer!", Toast.LENGTH_SHORT);
+						Toast.makeText(v.getContext(), "Incorrect Answer!", Toast.LENGTH_SHORT).show();
 						answer.setText("");
 					}
 				}
@@ -50,6 +65,14 @@ public class TaskMathProblemActivity extends Activity {
 	}
 	
 	
+	
+	@Override
+	public void onBackPressed() {
+		
+	}
+
+
+
 	private void setRandomNumbers() {
 		Random r = new Random();
 		int topInt = r.nextInt(200) + 20;

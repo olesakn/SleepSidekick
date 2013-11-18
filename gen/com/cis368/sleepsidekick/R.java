@@ -11,7 +11,7 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
-        public static final int dark_gray=0x7f040000;
+        public static final int dark_gray=0x7f050000;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -20,8 +20,8 @@ public final class R {
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f050000;
-        public static final int activity_vertical_margin=0x7f050001;
+        public static final int activity_horizontal_margin=0x7f060000;
+        public static final int activity_vertical_margin=0x7f060001;
     }
     public static final class drawable {
         public static final int alarm=0x7f020000;
@@ -38,76 +38,76 @@ public final class R {
         public static final int stats=0x7f02000b;
     }
     public static final class id {
-        public static final int alarm_list_row_checkbox=0x7f090033;
-        public static final int alarm_list_row_name=0x7f090031;
-        public static final int alarm_list_row_time=0x7f090032;
-        public static final int alarms_button_create_new_alarm=0x7f090026;
-        public static final int alarms_list_view=0x7f090025;
-        public static final int alarms_text_none_created=0x7f090027;
-        public static final int create_alarm_button_date=0x7f090002;
-        public static final int create_alarm_button_save=0x7f090014;
-        public static final int create_alarm_name=0x7f090000;
-        public static final int create_alarm_repeat_checkbox=0x7f09000a;
-        public static final int create_alarm_spinner_snooze=0x7f090013;
-        public static final int create_alarm_spinner_sound=0x7f09000d;
-        public static final int create_alarm_spinner_task=0x7f090010;
-        public static final int create_alarm_time_picker=0x7f090001;
-        public static final int create_alarm_toggle_F=0x7f090008;
-        public static final int create_alarm_toggle_M=0x7f090004;
-        public static final int create_alarm_toggle_Sa=0x7f090009;
-        public static final int create_alarm_toggle_Su=0x7f090003;
-        public static final int create_alarm_toggle_Th=0x7f090007;
-        public static final int create_alarm_toggle_Tu=0x7f090005;
-        public static final int create_alarm_toggle_W=0x7f090006;
-        public static final int create_sleep_aid_button_date=0x7f090017;
-        public static final int create_sleep_aid_button_save=0x7f090015;
-        public static final int create_sleep_aid_checkbox_repeat=0x7f09001f;
-        public static final int create_sleep_aid_name=0x7f090016;
-        public static final int create_sleep_aid_seekbar_brightness=0x7f090024;
-        public static final int create_sleep_aid_seekbar_volume=0x7f090022;
-        public static final int create_sleep_aid_spinner_sound=0x7f090020;
-        public static final int create_sleep_aid_text_brightness=0x7f090023;
-        public static final int create_sleep_aid_text_volume=0x7f090021;
-        public static final int create_sleep_aid_toggle_F=0x7f09001d;
-        public static final int create_sleep_aid_toggle_M=0x7f090019;
-        public static final int create_sleep_aid_toggle_Sa=0x7f09001e;
-        public static final int create_sleep_aid_toggle_Su=0x7f090018;
-        public static final int create_sleep_aid_toggle_Th=0x7f09001c;
-        public static final int create_sleep_aid_toggle_Tu=0x7f09001a;
-        public static final int create_sleep_aid_toggle_W=0x7f09001b;
-        public static final int digitalClock1=0x7f09003a;
-        public static final int home_button_go_to_sleep=0x7f090028;
-        public static final int home_button_schedule=0x7f09002b;
-        public static final int home_button_stats=0x7f09002c;
-        public static final int home_digitalClock=0x7f090029;
-        public static final int home_textview_date=0x7f09002a;
-        public static final int imageButton1=0x7f09003c;
-        public static final int menu_alarm_delete=0x7f090044;
-        public static final int menu_alarm_edit=0x7f090045;
-        public static final int pager=0x7f090030;
-        public static final int progressBar1=0x7f090040;
-        public static final int schedule__text_no_tasks_today=0x7f090039;
-        public static final int schedule_calendar_view=0x7f090037;
-        public static final int schedule_list_view=0x7f090038;
-        public static final int sleep_aid_list_row_checkbox=0x7f090036;
-        public static final int sleep_aid_list_row_name=0x7f090034;
-        public static final int sleep_aid_list_row_sound_and_days=0x7f090035;
-        public static final int sleep_aids_button_create=0x7f09002e;
-        public static final int sleep_aids_list_view=0x7f09002d;
-        public static final int sleep_aids_text_none_created=0x7f09002f;
-        public static final int sleeping_button_alarm=0x7f09003b;
-        public static final int sleeping_button_sleep_air=0x7f09003d;
-        public static final int tableRow1=0x7f09000b;
-        public static final int tableRow2=0x7f09000e;
-        public static final int tableRow3=0x7f090011;
-        public static final int task_math_answer=0x7f090041;
-        public static final int task_math_bottom_num=0x7f09003f;
-        public static final int task_math_top_num=0x7f09003e;
-        public static final int textView1=0x7f09000c;
-        public static final int textView2=0x7f09000f;
-        public static final int textView3=0x7f090012;
-        public static final int wake_up_button_snooze=0x7f090042;
-        public static final int wake_up_button_wake_up=0x7f090043;
+        public static final int alarm_list_row_checkbox=0x7f0a0033;
+        public static final int alarm_list_row_name=0x7f0a0031;
+        public static final int alarm_list_row_time=0x7f0a0032;
+        public static final int alarms_button_create_new_alarm=0x7f0a0026;
+        public static final int alarms_list_view=0x7f0a0025;
+        public static final int alarms_text_none_created=0x7f0a0027;
+        public static final int create_alarm_button_date=0x7f0a0002;
+        public static final int create_alarm_button_save=0x7f0a0014;
+        public static final int create_alarm_name=0x7f0a0000;
+        public static final int create_alarm_repeat_checkbox=0x7f0a000a;
+        public static final int create_alarm_spinner_snooze=0x7f0a0013;
+        public static final int create_alarm_spinner_sound=0x7f0a000d;
+        public static final int create_alarm_spinner_task=0x7f0a0010;
+        public static final int create_alarm_time_picker=0x7f0a0001;
+        public static final int create_alarm_toggle_F=0x7f0a0008;
+        public static final int create_alarm_toggle_M=0x7f0a0004;
+        public static final int create_alarm_toggle_Sa=0x7f0a0009;
+        public static final int create_alarm_toggle_Su=0x7f0a0003;
+        public static final int create_alarm_toggle_Th=0x7f0a0007;
+        public static final int create_alarm_toggle_Tu=0x7f0a0005;
+        public static final int create_alarm_toggle_W=0x7f0a0006;
+        public static final int create_sleep_aid_button_date=0x7f0a0017;
+        public static final int create_sleep_aid_button_save=0x7f0a0015;
+        public static final int create_sleep_aid_checkbox_repeat=0x7f0a001f;
+        public static final int create_sleep_aid_name=0x7f0a0016;
+        public static final int create_sleep_aid_seekbar_brightness=0x7f0a0024;
+        public static final int create_sleep_aid_seekbar_volume=0x7f0a0022;
+        public static final int create_sleep_aid_spinner_sound=0x7f0a0020;
+        public static final int create_sleep_aid_text_brightness=0x7f0a0023;
+        public static final int create_sleep_aid_text_volume=0x7f0a0021;
+        public static final int create_sleep_aid_toggle_F=0x7f0a001d;
+        public static final int create_sleep_aid_toggle_M=0x7f0a0019;
+        public static final int create_sleep_aid_toggle_Sa=0x7f0a001e;
+        public static final int create_sleep_aid_toggle_Su=0x7f0a0018;
+        public static final int create_sleep_aid_toggle_Th=0x7f0a001c;
+        public static final int create_sleep_aid_toggle_Tu=0x7f0a001a;
+        public static final int create_sleep_aid_toggle_W=0x7f0a001b;
+        public static final int digitalClock1=0x7f0a003a;
+        public static final int home_button_go_to_sleep=0x7f0a0028;
+        public static final int home_button_schedule=0x7f0a002b;
+        public static final int home_button_stats=0x7f0a002c;
+        public static final int home_digitalClock=0x7f0a0029;
+        public static final int home_textview_date=0x7f0a002a;
+        public static final int imageButton1=0x7f0a003c;
+        public static final int menu_alarm_delete=0x7f0a0044;
+        public static final int menu_alarm_edit=0x7f0a0045;
+        public static final int pager=0x7f0a0030;
+        public static final int progressBar1=0x7f0a0040;
+        public static final int schedule__text_no_tasks_today=0x7f0a0039;
+        public static final int schedule_calendar_view=0x7f0a0037;
+        public static final int schedule_list_view=0x7f0a0038;
+        public static final int sleep_aid_list_row_checkbox=0x7f0a0036;
+        public static final int sleep_aid_list_row_name=0x7f0a0034;
+        public static final int sleep_aid_list_row_sound_and_days=0x7f0a0035;
+        public static final int sleep_aids_button_create=0x7f0a002e;
+        public static final int sleep_aids_list_view=0x7f0a002d;
+        public static final int sleep_aids_text_none_created=0x7f0a002f;
+        public static final int sleeping_button_alarm=0x7f0a003b;
+        public static final int sleeping_button_sleep_air=0x7f0a003d;
+        public static final int tableRow1=0x7f0a000b;
+        public static final int tableRow2=0x7f0a000e;
+        public static final int tableRow3=0x7f0a0011;
+        public static final int task_math_answer=0x7f0a0041;
+        public static final int task_math_bottom_num=0x7f0a003f;
+        public static final int task_math_top_num=0x7f0a003e;
+        public static final int textView1=0x7f0a000c;
+        public static final int textView2=0x7f0a000f;
+        public static final int textView3=0x7f0a0012;
+        public static final int wake_up_button_snooze=0x7f0a0042;
+        public static final int wake_up_button_wake_up=0x7f0a0043;
     }
     public static final class layout {
         public static final int create_alarm=0x7f030000;
@@ -126,15 +126,18 @@ public final class R {
         public static final int wake_up=0x7f03000d;
     }
     public static final class menu {
-        public static final int alarm_context_menu=0x7f080000;
-        public static final int home=0x7f080001;
+        public static final int alarm_context_menu=0x7f090000;
+        public static final int home=0x7f090001;
+    }
+    public static final class raw {
+        public static final int alarm_tone=0x7f040000;
     }
     public static final class string {
-        public static final int action_settings=0x7f060001;
-        public static final int app_name=0x7f060000;
-        public static final int title_section1=0x7f060002;
-        public static final int title_section2=0x7f060003;
-        public static final int title_section3=0x7f060004;
+        public static final int action_settings=0x7f070001;
+        public static final int app_name=0x7f070000;
+        public static final int title_section1=0x7f070002;
+        public static final int title_section2=0x7f070003;
+        public static final int title_section3=0x7f070004;
     }
     public static final class style {
         /** 
@@ -158,10 +161,10 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f080000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f070001;
+        public static final int AppTheme=0x7f080001;
     }
 }
