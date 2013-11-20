@@ -16,6 +16,8 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.DatePicker;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
@@ -38,6 +40,7 @@ public class CreateSleepAidActivity extends FragmentActivity implements OnSeekBa
 	
 		name = (TextView) this.findViewById(R.id.create_sleep_aid_name);
 		dateButton = (Button) this.findViewById(R.id.create_sleep_aid_button_date);
+		dateButton.setText("Set Date");
 		saveButton = (Button) this.findViewById(R.id.create_sleep_aid_button_save);
 		soundSpinner = (Spinner) this.findViewById(R.id.create_sleep_aid_spinner_sound);
 		volumeBar = (SeekBar) this.findViewById(R.id.create_sleep_aid_seekbar_volume);
@@ -87,7 +90,15 @@ public class CreateSleepAidActivity extends FragmentActivity implements OnSeekBa
 		saveButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				SleepAid x = new SleepAid();
+
 				x.setDate(dateButton.getText().toString());
+				if (dateButton.getText().equals("Set Date")) {
+					SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+					Calendar c = Calendar.getInstance();
+					String d = df.format(new Date(c.get(Calendar.YEAR)-1900, c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH)));
+					x.setDate(d);
+				} 
+				
 				x.setName(name.getText().toString());
 				if (x.getName().length() == 0)
 					x.setName("Sleep Aid");
@@ -106,12 +117,13 @@ public class CreateSleepAidActivity extends FragmentActivity implements OnSeekBa
 		dateButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				showDatePickerDialog(v);
+				repeatCheckBox.setChecked(false);
+				toggleDaysEnabled(false, false);
 			}
 		});
 
 		// Spinners
 		List<String> list = new ArrayList<String>();
-		list.add("None");
 		list.add("Music");
 		list.add("Nature");
 		list.add("White Noise");
@@ -125,6 +137,23 @@ public class CreateSleepAidActivity extends FragmentActivity implements OnSeekBa
 		volumeBar.setProgress(50);
 		brightnessBar.setOnSeekBarChangeListener(this);
 		brightnessBar.setProgress(50);
+		
+		
+		// Repeat Toggles
+		repeatCheckBox.setOnCheckedChangeListener(new OnCheckedChangeListener(){
+			public void onCheckedChanged(CompoundButton cb, boolean checked) {
+				if (checked) {
+					toggleDaysEnabled(true, false);
+					dateButton.setText("Set Date");
+				}
+				else {
+					toggleDaysEnabled(false, false);
+					Calendar c = Calendar.getInstance();
+					setCurrentDate(c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.YEAR));
+				}
+			}
+		});
+		toggleDaysEnabled(false, false);
 
 	}
 
@@ -178,15 +207,6 @@ public class CreateSleepAidActivity extends FragmentActivity implements OnSeekBa
 		dateButton.setText(df.format(new Date(y-1900, m, d)));
 	}
 
-
-	@Override
-	public void onBackPressed() {
-		Intent i = new Intent(this, MainActivity.class);
-		i.putExtra("tab", 0);
-		startActivity(i);
-		finish(); // removes this activity from memory
-	}
-	
 	
 	/*********************************************************************
 	 * Get String representation of the repeated days
@@ -239,6 +259,28 @@ public class CreateSleepAidActivity extends FragmentActivity implements OnSeekBa
 		return days;
 	}
 	
+	private void toggleDaysEnabled(boolean value, boolean checked) {
+		((ToggleButton) findViewById(R.id.create_sleep_aid_toggle_Su)).setEnabled(value);
+		((ToggleButton) findViewById(R.id.create_sleep_aid_toggle_Su)).setChecked(checked);
+		((ToggleButton) findViewById(R.id.create_sleep_aid_toggle_M)).setEnabled(value);
+		((ToggleButton) findViewById(R.id.create_sleep_aid_toggle_M)).setChecked(checked);
+		((ToggleButton) findViewById(R.id.create_sleep_aid_toggle_Tu)).setEnabled(value);
+		((ToggleButton) findViewById(R.id.create_sleep_aid_toggle_Tu)).setChecked(checked);
+		((ToggleButton) findViewById(R.id.create_sleep_aid_toggle_W)).setEnabled(value);
+		((ToggleButton) findViewById(R.id.create_sleep_aid_toggle_W)).setChecked(checked);
+		((ToggleButton) findViewById(R.id.create_sleep_aid_toggle_Th)).setEnabled(value);
+		((ToggleButton) findViewById(R.id.create_sleep_aid_toggle_Th)).setChecked(checked);
+		((ToggleButton) findViewById(R.id.create_sleep_aid_toggle_F)).setEnabled(value);
+		((ToggleButton) findViewById(R.id.create_sleep_aid_toggle_F)).setChecked(checked);
+		((ToggleButton) findViewById(R.id.create_sleep_aid_toggle_Sa)).setEnabled(value);
+		((ToggleButton) findViewById(R.id.create_sleep_aid_toggle_Sa)).setChecked(checked);
+	}
 	
+	public void onBackPressed() {
+		Intent i = new Intent(this, MainActivity.class);
+		i.putExtra("tab", 0);
+		startActivity(i);
+		finish(); // removes this activity from memory
+	}
 	
 }

@@ -18,7 +18,9 @@ public class WakeUpActivity extends Activity {
 		snooze = (Button) findViewById(R.id.wake_up_button_snooze);
 		snooze.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
-				startActivity(new Intent(v.getContext(), SleepingActivity.class));
+				Intent i = new Intent(v.getContext(), SleepingActivity.class);
+				i.putExtra("snooze", true);
+				startActivity(i);
 				finish();
 			}
 		});

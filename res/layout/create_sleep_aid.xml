@@ -15,15 +15,15 @@
 
         <EditText
             android:id="@+id/create_sleep_aid_name"
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:singleLine="true"
             android:ems="10"
             android:gravity="left"
+            android:hint="Name"
             android:inputType="textCapSentences"
-            android:hint="Name" />
+            android:singleLine="true" />
 
         <Button
             android:id="@+id/create_sleep_aid_button_date"
@@ -32,6 +32,7 @@
             android:layout_marginTop="30dp"
             android:gravity="center"
             android:height="55dp"
+            android:width="120dp"
             android:text="11/15/2013"
             android:textSize="16dp" />
 
@@ -177,10 +178,12 @@
     
       <Button
         android:id="@+id/create_sleep_aid_button_save"
+        android:drawableLeft="@drawable/save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
+        android:height="70dp"
         android:text="Save Sleep Aid" />
 
 </RelativeLayout>

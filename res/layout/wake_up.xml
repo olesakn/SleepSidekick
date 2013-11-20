@@ -12,7 +12,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="February 10th"
+        android:text="November 20th"
         android:textSize="30dp"
         android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -29,13 +29,15 @@
     <Button
         android:id="@+id/wake_up_button_snooze"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="140dip"
+        android:layout_below="@+id/digitalClock1"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="37dp"
+        android:drawableBottom="@drawable/snooze"
         android:height="200dp"
         android:text="Snooze"
-        android:textSize="40dp"
         android:textColor="@android:color/white"
+        android:textSize="40dp"
         android:width="300dp" />
 
     <Button
@@ -44,10 +46,12 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/wake_up_button_snooze"
         android:layout_below="@+id/wake_up_button_snooze"
-        android:layout_marginTop="24dp"
-        android:height="75dp"
+        android:layout_marginTop="37dp"
+        android:drawableBottom="@drawable/im_up"
+        android:height="100dp"
         android:text="Wake Up"
         android:textColor="@android:color/white"
+        android:textSize="23dp"
         android:width="300dp" />
 
 </RelativeLayout>

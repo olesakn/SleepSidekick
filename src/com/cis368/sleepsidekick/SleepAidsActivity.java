@@ -57,6 +57,7 @@ public class SleepAidsActivity extends Fragment {
 			public void onClick(View v) {
 				Intent i = new Intent(v.getContext(), CreateSleepAidActivity.class);
 				v.getContext().startActivity(i);
+				getActivity().finish();
 			}
 		});
 		

@@ -11,7 +11,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="February 10th"
+        android:text="November 20th"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@android:color/white"
         android:textSize="30dp" />
@@ -26,59 +26,50 @@
         android:textColor="@android:color/white"
         android:textSize="40dp" />
 
-    <Button
-        android:id="@+id/sleeping_button_alarm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="26dp"
-        android:height="75dp"
-        android:text="I'm awake!"
-        android:width="200dp" />
-
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/sleeping_text_sleep_aid_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/sleeping_button_alarm"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="14dp"
-        android:gravity="center"
-        android:text="Alarm set for 9:00 am\nTuesday, February 21\n12 hours, 30 mins from now"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@android:color/white" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/digitalClock1"
         android:layout_below="@+id/digitalClock1"
-        android:layout_marginTop="41dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
         android:gravity="center"
         android:text="10 minutes left of Nature ambience"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:width="200dp" />
 
-    <ImageButton
-        android:id="@+id/imageButton1"
+    <TextView
+        android:id="@+id/sleeping_text_alarm_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/sleeping_button_sleep_air"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView3"
-        android:layout_toLeftOf="@+id/textView2"
-        android:src="@android:drawable/btn_star" />
-
+        android:layout_below="@+id/sleeping_button_sleep_air"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:gravity="center"
+        android:text="Alarm set for 9:00 am\nThursday, November 20th\n11 hours, 30 mins from now"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/white" />
+    
     <Button
         android:id="@+id/sleeping_button_sleep_air"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView3"
+        android:layout_below="@+id/sleeping_text_sleep_aid_info"
         android:layout_centerHorizontal="true"
         android:text="Mute Sleep Aid"
         android:textSize="15dp"
         android:width="175dp" />
 
+    <Button
+        android:id="@+id/sleeping_button_alarm2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sleeping_text_alarm_info"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:drawableTop="@drawable/im_up"
+        android:height="85dp"
+        android:text="I&apos;m awake!"
+        android:width="270dp" />
+    
 </RelativeLayout>

@@ -5,6 +5,8 @@ import java.util.Random;
 import junit.framework.Test;
 
 import android.app.Activity;
+import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
@@ -13,6 +15,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnKeyListener;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
@@ -36,7 +39,7 @@ public class TaskMathProblemActivity extends Activity {
 		mp = MediaPlayer.create(this, R.raw.alarm_tone);
         mp.setOnCompletionListener(new OnCompletionListener() {
             public void onCompletion(MediaPlayer mp) {
-                mp.release();
+                mp.start();
             }
         });   
         mp.start();
@@ -44,20 +47,23 @@ public class TaskMathProblemActivity extends Activity {
 		answer.setOnKeyListener(new OnKeyListener() {
 			public boolean onKey(View v, int keyCode, KeyEvent event) {
 				if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
-					int t = Integer.parseInt(top.getText().toString());	
-					int b = Integer.parseInt(bottom.getText().toString());	
-					int a = Integer.parseInt(answer.getText().toString());	
-					if (t + b == a) {
-						mp.release();
-						Intent i = new Intent(v.getContext(), WakeUpActivity.class);
-						startActivity(i);
-						finish();
-						return true;	
-					}
-					else {
-						Toast.makeText(v.getContext(), "Incorrect Answer!", Toast.LENGTH_SHORT).show();
-						answer.setText("");
-					}
+					try {
+						int t = Integer.parseInt(top.getText().toString());	
+						int b = Integer.parseInt(bottom.getText().toString());	
+						int a = Integer.parseInt(answer.getText().toString());	
+						if (t + b == a) {
+							mp.release();
+							Intent i = new Intent(v.getContext(), WakeUpActivity.class);
+							startActivity(i);
+							finish();
+							return false;	
+						} else {
+							Toast.makeText(v.getContext(), "Incorrect Answer!", Toast.LENGTH_SHORT).show();
+							answer.setText(""); 
+							answer.requestFocus();
+							return true;
+						}
+					} catch (Exception e) {}
 				}
 				return false;
 			}
@@ -65,10 +71,14 @@ public class TaskMathProblemActivity extends Activity {
 	}
 	
 	
+	private void showKeyboard() {
+		InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+		imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,0);
+	}
 	
 	@Override
 	public void onBackPressed() {
-		
+		// do nothing (don't let user turn off alarm)
 	}
 
 

@@ -54,6 +54,7 @@ public class AlarmsActivity extends Fragment {
 			public void onClick(View v) {
 				Intent i= new Intent(v.getContext(), CreateAlarmActivity.class);
 				v.getContext().startActivity(i);
+				getActivity().finish();
 			}
 		});
 		
@@ -94,5 +95,4 @@ public class AlarmsActivity extends Fragment {
 		else
 			return super.onContextItemSelected(item);
 	}
-	
 }

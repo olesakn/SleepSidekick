@@ -19,10 +19,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TimePicker;
 import android.widget.ToggleButton;
 
@@ -45,6 +47,7 @@ public class CreateAlarmActivity extends FragmentActivity {
 		repeatCheckBox = (CheckBox) findViewById(R.id.create_alarm_repeat_checkbox);
 		saveButton = (Button) findViewById(R.id.create_alarm_button_save);
 		dateButton = (Button) findViewById(R.id.create_alarm_button_date);
+		dateButton.setText("Set Date");
 		soundSpinner = (Spinner) findViewById(R.id.create_alarm_spinner_sound);
 		taskSpinner = (Spinner) findViewById(R.id.create_alarm_spinner_task);
 		snoozeSpinner = (Spinner) findViewById(R.id.create_alarm_spinner_snooze);
@@ -99,12 +102,17 @@ public class CreateAlarmActivity extends FragmentActivity {
 		// SAVE BUTTON LISTENER
 		saveButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				
 				Alarm alarm = new Alarm();
 				alarm.setName(nameText.getText().toString());
 				if (nameText.getText().length() == 0)
 					alarm.setName("Alarm");
 				alarm.setDate(dateButton.getText().toString());
+				if (dateButton.getText().equals("Set Date")) {
+					SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+					Calendar c = Calendar.getInstance();
+					String d = df.format(new Date(c.get(Calendar.YEAR)-1900, c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH)));
+					alarm.setDate(d);
+				} 
 				int hour = timePicker.getCurrentHour();
 				alarm.setAm(true);
 				if (hour == 12)
@@ -129,15 +137,16 @@ public class CreateAlarmActivity extends FragmentActivity {
 				else
 					MainActivity.alarms.add(alarm);
 
+				//finish();
 				onBackPressed(); // return to alarms screen
 			}
 		});
 		
 		// CHANGE DATE BUTTON LISTENER
-		Calendar c = Calendar.getInstance();
-		setCurrentDate(c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.YEAR));
 		dateButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
+				repeatCheckBox.setChecked(false);
+				toggleDaysEnabled(false, false);
 				showDatePickerDialog(v);
 			}
 		});
@@ -146,7 +155,7 @@ public class CreateAlarmActivity extends FragmentActivity {
 
 		// SPINNER LISTS
 		List<String> list1 = new ArrayList<String>();
-		list1.add("None");
+		list1.add("Default");
 		list1.add("Music");
 		list1.add("Nature");
 		list1.add("White Noise");
@@ -179,6 +188,22 @@ public class CreateAlarmActivity extends FragmentActivity {
 				android.R.layout.simple_spinner_item, list3);
 		dataAdapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		snoozeSpinner.setAdapter(dataAdapter3);
+		
+		// Repeat Check Box
+		repeatCheckBox.setOnCheckedChangeListener(new OnCheckedChangeListener(){
+			public void onCheckedChanged(CompoundButton cb, boolean checked) {
+				if (checked) {
+					toggleDaysEnabled(true, false);
+					dateButton.setText("Set Date");
+				}
+				else {
+					toggleDaysEnabled(false, false);
+					Calendar c = Calendar.getInstance();
+					setCurrentDate(c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.YEAR));
+				}
+			}
+		});
+		toggleDaysEnabled(false, false);
 	}
 	
 	/***************************************
@@ -263,6 +288,23 @@ public class CreateAlarmActivity extends FragmentActivity {
 			}
 		}
 		return days;
+	}
+	
+	private void toggleDaysEnabled(boolean value, boolean checked) {
+		((ToggleButton) findViewById(R.id.create_alarm_toggle_Su)).setEnabled(value);
+		((ToggleButton) findViewById(R.id.create_alarm_toggle_Su)).setChecked(checked);
+		((ToggleButton) findViewById(R.id.create_alarm_toggle_M)).setEnabled(value);
+		((ToggleButton) findViewById(R.id.create_alarm_toggle_M)).setChecked(checked);
+		((ToggleButton) findViewById(R.id.create_alarm_toggle_Tu)).setEnabled(value);
+		((ToggleButton) findViewById(R.id.create_alarm_toggle_Tu)).setChecked(checked);
+		((ToggleButton) findViewById(R.id.create_alarm_toggle_W)).setEnabled(value);
+		((ToggleButton) findViewById(R.id.create_alarm_toggle_W)).setChecked(checked);
+		((ToggleButton) findViewById(R.id.create_alarm_toggle_Th)).setEnabled(value);
+		((ToggleButton) findViewById(R.id.create_alarm_toggle_Th)).setChecked(checked);
+		((ToggleButton) findViewById(R.id.create_alarm_toggle_F)).setEnabled(value);
+		((ToggleButton) findViewById(R.id.create_alarm_toggle_F)).setChecked(checked);
+		((ToggleButton) findViewById(R.id.create_alarm_toggle_Sa)).setEnabled(value);
+		((ToggleButton) findViewById(R.id.create_alarm_toggle_Sa)).setChecked(checked);
 	}
 
 

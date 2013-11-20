@@ -13,7 +13,7 @@
 
     <EditText
         android:id="@+id/create_alarm_name"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
@@ -44,6 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="-20dp"
             android:height="55dp"
+            android:width="120dp"
             android:gravity="center"
             android:text="11/15/2013"
             android:textSize="16dp" />

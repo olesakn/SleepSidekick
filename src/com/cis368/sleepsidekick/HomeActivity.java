@@ -8,13 +8,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class HomeActivity extends Fragment implements OnClickListener {
 	
-	//public static final String ARG_SECTION_NUMBER = "section_number";
 	private View rootView;
 	private Button goToSleepButton, scheduleButton, statsButton;
-
+	private TextView info; 
 	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		rootView = inflater.inflate(R.layout.fragment_home, container, false);
@@ -28,6 +29,17 @@ public class HomeActivity extends Fragment implements OnClickListener {
 		statsButton = (Button) rootView.findViewById(R.id.home_button_stats);
 		statsButton.setOnClickListener(this);
 		
+		info = (TextView) rootView.findViewById(R.id.home_text_view_information);
+		if (MainActivity.alarms.size() > 0) {
+			Alarm a = MainActivity.alarms.get(0);
+			info.setText("Alarm set for " + a.getHour() + ":" + a.getMinute() + 
+					   "\nThursday, February 21\n16 hours, 26 mins from now");
+			
+		}
+		else
+			info.setText("No alarms currently set\n\n ");
+		
+		
 		return rootView;
 	}
 
@@ -36,9 +48,13 @@ public class HomeActivity extends Fragment implements OnClickListener {
 	public void onClick(View v) {
 		
 		if (v == goToSleepButton) {
-			Intent i = new Intent(v.getContext(), SleepingActivity.class);
-			startActivity(i);
-			getActivity().finish();
+			if (MainActivity.alarms.size() > 0 && MainActivity.alarms.size() > 0) {
+				Intent i = new Intent(v.getContext(), SleepingActivity.class);
+				startActivity(i);
+				getActivity().finish();
+			}
+			else
+				Toast.makeText(v.getContext(), "No alarms or sleep aids are set!", Toast.LENGTH_LONG).show();
 		}
 		
 		if (v == scheduleButton) {
@@ -51,7 +67,6 @@ public class HomeActivity extends Fragment implements OnClickListener {
 			Intent i = new Intent(v.getContext(), StatisticsActivity.class);
 			startActivity(i);
 			getActivity().finish();
-			
 		}
 	}
 }
