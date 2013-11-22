@@ -120,7 +120,7 @@
         android:id="@+id/create_alarm_repeat_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:checked="false"
+        android:checked="true"
         android:textSize="20dp"
         android:text="Repeat Weekly" />
 
@@ -128,7 +128,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:layout_marginLeft="60dp" >
+        android:layout_marginLeft="20dp" >
 
         <TableRow
             android:id="@+id/tableRow1"
@@ -165,7 +165,7 @@
                 android:layout_height="fill_parent"
                 android:layout_gravity="right"
                 android:gravity="center"
-                android:text="Task"
+                android:text="Wake Up Task"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Spinner
