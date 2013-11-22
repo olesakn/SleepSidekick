@@ -83,6 +83,7 @@ public final class R {
         public static final int home_text_view_information=0x7f0a002b;
         public static final int home_textview_date=0x7f0a002a;
         public static final int imageView1=0x7f0a0040;
+        public static final int menu_alarm_customize_dates=0x7f0a0049;
         public static final int menu_alarm_delete=0x7f0a0047;
         public static final int menu_alarm_edit=0x7f0a0048;
         public static final int pager=0x7f0a0031;

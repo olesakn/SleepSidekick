@@ -7,6 +7,7 @@ public class SleepAid {
 	private String name, sound, date;
 	private ArrayList<String> days;
 	private boolean repeat, enabled;
+	private ArrayList<String> disabledDates;
 	
 	
 	
@@ -17,7 +18,7 @@ public class SleepAid {
 		days = new ArrayList<String>();
 		repeat = false;
 		enabled = true;
-		
+		disabledDates = new ArrayList<String> ();
 	}
 	
 	public SleepAid(String name,
@@ -30,7 +31,22 @@ public class SleepAid {
 		this.sound = sound;
 		this.days= days;
 		this.repeat = repeat;
-		this.enabled= true;
+		this.enabled= true;		
+		this.disabledDates = new ArrayList<String>();
+	}
+	
+	
+
+	public ArrayList<String> getDisabledDates() {
+		return disabledDates;
+	}
+
+	public void addDisabledDate(String date) {
+		disabledDates.add(date);
+	}
+	
+	public void removeDisabledDate(String date) {
+		disabledDates.remove(date);
 	}
 
 	public String getName() {

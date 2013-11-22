@@ -1,5 +1,6 @@
 package com.cis368.sleepsidekick;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -124,7 +125,8 @@ public class CreateAlarmActivity extends FragmentActivity {
 					alarm.setAm(false);
 				}	
 				alarm.setHour(hour + "");
-				alarm.setMinute(timePicker.getCurrentMinute().toString());
+				DecimalFormat df = new DecimalFormat("00");
+				alarm.setMinute(df.format(timePicker.getCurrentMinute()));
 				alarm.setRepeat(repeatCheckBox.isChecked());
 				alarm.setSnooze(snoozeSpinner.getSelectedItem().toString());
 				alarm.setSnooze(taskSpinner.getSelectedItem().toString());
@@ -203,7 +205,7 @@ public class CreateAlarmActivity extends FragmentActivity {
 				}
 			}
 		});
-		toggleDaysEnabled(false, false);
+		//toggleDaysEnabled(false, false);
 	}
 	
 	/***************************************

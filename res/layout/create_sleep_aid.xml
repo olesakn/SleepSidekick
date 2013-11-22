@@ -103,7 +103,7 @@
             android:id="@+id/create_sleep_aid_checkbox_repeat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-     	    android:checked="false"
+       		android:checked="true"
      	    android:textSize="20dp"
             android:text="Repeat Weekly" />
 

@@ -1,5 +1,7 @@
 package com.cis368.sleepsidekick;
 
+import java.text.DecimalFormat;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -32,7 +34,10 @@ public class HomeActivity extends Fragment implements OnClickListener {
 		info = (TextView) rootView.findViewById(R.id.home_text_view_information);
 		if (MainActivity.alarms.size() > 0) {
 			Alarm a = MainActivity.alarms.get(0);
-			info.setText("Alarm set for " + a.getHour() + ":" + a.getMinute() + 
+			String am_pm = "PM";
+			if (a.isAm())
+				am_pm = "AM";
+			info.setText("Alarm set for " + a.getHour() + ":" + a.getMinute() + " " + am_pm + 
 					   "\nThursday, February 21\n16 hours, 26 mins from now");
 			
 		}

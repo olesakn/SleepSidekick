@@ -79,6 +79,7 @@ public class SleepAidsActivity extends Fragment {
 		super.onCreateContextMenu(menu, v, menuInfo);            
 		menu.add(Menu.NONE, R.id.menu_alarm_edit, Menu.NONE, "Edit");
         menu.add(Menu.NONE, R.id.menu_alarm_delete, Menu.NONE, "Delete");
+        menu.add(Menu.NONE, R.id.menu_alarm_customize_dates, Menu.NONE, "Customize Dates");
 	}
 	
 	
@@ -97,6 +98,11 @@ public class SleepAidsActivity extends Fragment {
 			if (MainActivity.sleepAids.size() == 0)
 				noneCreated.setText("No sleeps aids have been created");
 			adapter.notifyDataSetChanged();
+			return true;
+		}
+		else if (item.getItemId() == R.id.menu_alarm_customize_dates) {
+			startActivity(new Intent(rootView.getContext(), ScheduleActivity.class));
+			getActivity().finish();
 			return true;
 		}
 		else

@@ -153,8 +153,6 @@ public class CreateSleepAidActivity extends FragmentActivity implements OnSeekBa
 				}
 			}
 		});
-		toggleDaysEnabled(false, false);
-
 	}
 
 	/***************************************************

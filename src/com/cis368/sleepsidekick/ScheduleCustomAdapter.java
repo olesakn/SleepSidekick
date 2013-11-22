@@ -1,7 +1,10 @@
 package com.cis368.sleepsidekick;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -57,14 +60,32 @@ public class ScheduleCustomAdapter extends BaseAdapter {
 			String hourStr = new DecimalFormat("00").format(Integer.parseInt(alarm.getHour()));
 			String minStr = new DecimalFormat("00").format(Integer.parseInt(alarm.getMinute()));
 			other.setText(hourStr + ":" + minStr + " " + am_pm + "\t  " + alarm.getDays());
-			enabled.setChecked(alarm.isEnabled());
+			Calendar c = ScheduleActivity.calendar;
+			String date = new SimpleDateFormat("MM/dd/yyyy").format(new Date(c.get(Calendar.YEAR)-1900, c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH)));
+			if (alarm.isEnabled()) {
+				if (alarm.getDisabledDates().contains(date))
+					enabled.setChecked(false);
+				else
+					enabled.setChecked(true);
+			}
+			else
+				enabled.setChecked(false);
 			
 		} catch (Exception e) {
 			try {
 				SleepAid s = (SleepAid) data.get(index);
 				name.setText(s.getName());
 				other.setText(s.getSound() + "\t  " + s.getDays());
-				enabled.setChecked(s.isEnabled());
+				Calendar c = ScheduleActivity.calendar;
+				String date = new SimpleDateFormat("MM/dd/yyyy").format(new Date(c.get(Calendar.YEAR)-1900, c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH)));
+				if (s.isEnabled()) {
+					if (s.getDisabledDates().contains(date))
+						enabled.setChecked(false);
+					else
+						enabled.setChecked(true);
+				}
+				else
+					enabled.setChecked(false);
 			} catch (Exception f) {}
 		}	
 		return v;

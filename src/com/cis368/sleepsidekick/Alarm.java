@@ -1,9 +1,7 @@
 package com.cis368.sleepsidekick;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Alarm implements Serializable {
 
@@ -25,6 +23,7 @@ public class Alarm implements Serializable {
 		this.am = true;
 		this.days = new ArrayList<String>();
 		this.enabled = true;
+		this.disabledDates = new ArrayList<String>();
 	}
 	
 	public Alarm(String name, String date, String hour, String minute, boolean am, 
@@ -40,6 +39,21 @@ public class Alarm implements Serializable {
 		this.am = am;
 		this.days = days;
 		this.enabled = true;
+		this.disabledDates = new ArrayList<String>();
+	}
+	
+	
+
+	public ArrayList<String> getDisabledDates() {
+		return disabledDates;
+	}
+
+	public void addDisabledDate(String date) {
+		disabledDates.add(date);
+	}
+	
+	public void removeDisabledDate(String date) {
+		disabledDates.remove(date);
 	}
 
 	public String getName() {

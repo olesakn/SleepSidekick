@@ -2,6 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     <item android:id="@+id/menu_alarm_delete" android:title="Delete"></item>
     <item android:id="@+id/menu_alarm_edit" android:title="Edit"></item>
+    <item android:id="@+id/menu_alarm_customize_dates" android:title="Customize Dates"></item>
     
 
 </menu>
